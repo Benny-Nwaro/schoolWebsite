@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import Footer from "@/src/components/Footer/Footer";
-// import Navbar from "@/src/components/Navbar/Navbar";
+import Navbar from "@/src/components/Navbar/Navbar";
 // import GoogleTranslateElement from "@/src/components/GoogleTranslateElement/GoogleTranslateElement";
 import Providers from "./providers";
 
@@ -31,7 +31,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} ${poppins.className}`}>
         <Providers>
-          {/* <Navbar /> */}
+          <Navbar />
           {/* <GoogleTranslateElement /> */}
           {children}
           <Footer />
