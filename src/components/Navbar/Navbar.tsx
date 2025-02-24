@@ -223,31 +223,31 @@ const Navbar: React.FC = () => {
         </ul>
 
         {/* Right-side Actions */}
-        <div className="hidden lg:flex items-center space-x-6 text-base">
-          <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+        <div className="hidden lg:flex items-center space-x-6 text-sm">
+          <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">
             Become a Tutor
           </button>
-          <div className="flex items-center text-gray-600 space-x-2">
+          <div className="flex items-center text-gray-600 space-x-2 text-sm">
             <FaPhoneAlt />
             <span>+1 888-252-9485</span>
           </div>
           <div className="flex items-center">
-            <FaGlobe className="text-gray-600 mr-2" />
-            <select className="bg-transparent text-gray-800 border-none focus:outline-none">
+            <FaGlobe className="text-gray-600 mr-2 text-sm" />
+            <select className="bg-transparent text-gray-800 border-none focus:outline-none text-sm">
               <option value="en">EN/USD</option>
               <option value="es">ES/EUR</option>
             </select>
           </div>
-          <button className="text-gray-600 p-2 hover:text-blue-500">
+          <button className="text-gray-600 p-2 hover:text-blue-500 text-sm">
             <FaHeart />
           </button>
-          <button className="text-gray-600 p-2 hover:text-blue-500">
+          <button className="text-gray-600 p-2 hover:text-blue-500 text-sm">
             <FaQuestionCircle />
           </button>
-          <Link href="/auth/signIn" className="px-4 py-2 text-blue-500 border border-blue-500 rounded hover:bg-blue-500 hover:text-white">
+          <Link href="/auth/signIn" className="px-4 py-2 text-blue-500 border border-blue-500 rounded hover:bg-blue-500 hover:text-white text-sm">
             Sign in
           </Link>
-          <button className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800">
+          <button className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 text-sm">
             Book a free trial
           </button>
         </div>
