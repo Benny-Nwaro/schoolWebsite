@@ -55,6 +55,9 @@ body {
   line-height: 76.8px;
   letter-spacing: -2px;
 }
+.navbar h1 {
+  font-size: 1.25rem; /* Ensure a normal size for navbar headings */
+}
 .text_dark_blue {
   color: var(--dark-blue);
 }
