@@ -101,8 +101,8 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav hidden={showNavbar} className="bg-white shadow-md fixed top-0 w-full z-50">
-      <div className="flex items-center justify-between px-6 lg:px-20 py-4 lg:py-6">
+    <nav hidden={showNavbar} className="bg-white shadow-md fixed top-0 w-full text-sm z-50">
+      <div className="flex items-center justify-between px-6 lg:px-20 py-4 lg:py-6 text-sm">
         {/* Logo */}
         <div className="flex items-center">
           <NavLogoContainer />
@@ -119,14 +119,14 @@ const Navbar: React.FC = () => {
 
         {/* Navigation Links */}
         <ul
-          className={`absolute top-16 left-0 w-full bg-white shadow-lg lg:shadow-none lg:static lg:w-auto lg:flex lg:items-center lg:space-x-8 ${
+          className={`absolute top-16 left-0 w-full text-sm bg-white shadow-lg lg:shadow-none lg:static lg:w-auto lg:flex lg:items-center lg:space-x-8 ${
             menuOpen ? "block" : "hidden"
           }`}
         >
               {/* Subjects Menu */}
-              <li className="group relative cursor-pointer px-6 py-3 lg:py-0 lg:px-0 text-base">
+              <li className="group relative cursor-pointer px-6 py-3 lg:py-0 lg:px-0 text-sm">
             <div
-              className="flex items-center hover:text-blue-500"
+              className="flex items-center hover:text-blue-500 text-sm"
               onClick={() => setSubjectsOpen(!subjectsOpen)}
             >
               <span>Subjects</span>
@@ -168,9 +168,9 @@ const Navbar: React.FC = () => {
             )}
           </li>
             {/* Grades Menu */}
-            <li className="group relative cursor-pointer px-6 py-3 lg:py-0 lg:px-0 text-base">
+            <li className="group relative cursor-pointer px-6 py-3 lg:py-0 lg:px-0 text-sm">
             <div
-              className="flex items-center hover:text-blue-500"
+              className="flex items-center hover:text-blue-500 text-sm"
               onClick={() => setGradesOpen(!gradesOpen)}
             >
               <span>Grades</span>
@@ -205,8 +205,8 @@ const Navbar: React.FC = () => {
             )}
           </li>
          
-          <li className="px-6 py-3 lg:py-0 lg:px-0">
-            <a href="/pricing" className="hover:text-blue-500">
+          <li className="px-6 py-3 lg:py-0 lg:px-0 text-sm">
+            <a href="/pricing" className="hover:text-blue-500 text-sm">
               Pricing
             </a>
           </li>
@@ -229,9 +229,9 @@ const Navbar: React.FC = () => {
           </button>
           <div className="flex items-center text-gray-600 space-x-2 text-sm">
             <FaPhoneAlt />
-            <span>+1 888-252-9485</span>
+            <span className="text-sm">+1 888-252-9485</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center text-sm">
             <FaGlobe className="text-gray-600 mr-2 text-sm" />
             <select className="bg-transparent text-gray-800 border-none focus:outline-none text-sm">
               <option value="en">EN/USD</option>
