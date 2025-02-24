@@ -10,32 +10,32 @@ const WhyChooseEducify: React.FC = () => {
   const features = [
     {
       id: 1,
-      image: calendarImg, // Replace with actual image paths
+      image: calendarImg, 
       title: "Custom Learning Plans",
       description: "Tailored to fit each student’s goals and learning style.",
     },
     {
       id: 2,
-      image: expertTutors, // Replace with actual image paths
+      image: expertTutors, 
       title: "Expert Tutors",
       description: "Qualified educators from top institutions.",
     },
     {
       id: 3,
-      image: onlineOffline, // Replace with actual image paths
+      image: onlineOffline, 
       title: "Online and In-person Classes",
       description: "Learn on your schedule with live or recorded sessions.",
     },
     {
       id: 4,
-      image: afforedablePricing, // Replace with actual image paths
+      image: afforedablePricing, 
       title: "Affordable Pricing",
       description: "Quality education for every budget, with flexible payment plans.",
     },
   ];
 
   return (
-    <div className="bg-gray-50 mx-20 py-16 px-8">
+    <div className="mx-20 py-16 px-8 max-md:w-full max-md:px-3">
       {/* Header Section */}
       <div className="text-center mb-12">
         <h2 className="text-3xl lg:text-4xl font-bold text-gray-800">
