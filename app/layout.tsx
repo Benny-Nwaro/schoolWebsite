@@ -31,7 +31,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} ${poppins.className}`}>
         <Providers>
-          <Navbar />
+          {/* <Navbar /> */}
           {/* <GoogleTranslateElement /> */}
           {children}
           <Footer />
