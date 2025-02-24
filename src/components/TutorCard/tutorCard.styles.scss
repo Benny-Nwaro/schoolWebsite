@@ -1,0 +1,133 @@
+.tutor_card {
+  width: 280px;
+  min-width: 280px;
+  height: 416px;
+  min-height: 416px;
+  overflow: hidden;
+  padding: 8px;
+  padding-bottom: 12px;
+  background-color: #fff;
+  box-shadow: 0px 0px 100px 0px #4e4d9026;
+  border-radius: 24px;
+  cursor: pointer;
+  .tutor_card_image {
+    max-width: 100%;
+    position: relative;
+    border-radius: 16px;
+    max-height: 277px;
+    height: 100%;
+    .free_trial {
+      background-color: var(--primary-color);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-radius: 0px 16px 0px 16px;
+      padding: 12px;
+      line-height: 14.4px;
+      letter-spacing: 2%;
+    }
+    img {
+      border-radius: 16px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .personal_info_row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: solid 1px #f1f1f9;
+    .is_verified {
+      display: flex;
+      align-items: center;
+    }
+    .name_container {
+      width: 140px;
+      .name {
+        color: var(--black-color);
+        font-weight: 700;
+        font-size: 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    .hourly_rate {
+      margin-left: auto;
+      span {
+        white-space: nowrap;
+      }
+      color: var(--black-color);
+      font-weight: 700;
+      font-size: 18px;
+      padding: 8px 12px;
+      border-radius: 50px;
+      border: solid #f1f1f9 1px;
+      line-height: 21.6px;
+      letter-spacing: 2%;
+    }
+  }
+  .personal_info_container {
+    padding: 0 8px;
+  }
+  .tutor_other_info {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 12px 0;
+    img {
+      width: 14px;
+      height: 14px;
+    }
+    .lesson_name {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      span {
+        color: var(--black-color);
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 14.4px;
+      }
+    }
+    .rating {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      span {
+        color: var(--text-color);
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 2%;
+        line-height: 21px;
+      }
+    }
+    .nb_review {
+      color: var(--text-color);
+      font-weight: 500;
+      letter-spacing: 2%;
+      line-height: 21px;
+      font-size: 14px;
+    }
+  }
+  .lesson_location {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    img {
+      width: 14px;
+      height: 14px;
+    }
+    span {
+      color: var(--black-color);
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 14.4px;
+    }
+  }
+}

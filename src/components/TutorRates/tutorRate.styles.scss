@@ -1,0 +1,40 @@
+.tutor_rates {
+  .tutor_rates_container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-right: 16px;
+    .rate_row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      span {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0.02em;
+      }
+      .price {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 19.2px;
+        letter-spacing: 0.02em;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .tutor_page {
+    .tutor_rates {
+      .tutor_rates_container {
+        flex-wrap: wrap;
+      }
+    }
+    .tutor_info_container {
+      .other_lessons {
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

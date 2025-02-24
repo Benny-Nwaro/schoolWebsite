@@ -1,0 +1,89 @@
+.transition {
+  transition: opacity ease 0.3s;
+}
+.btn-primary {
+  @extend .transition;
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.btn-primary_inverted {
+  padding: 12px 24px;
+  background-color: #d3e9fd;
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.btn-dark {
+  padding: 12px 24px;
+  background-color: var(--black-color);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.btn-gold {
+  padding: 16px 24px;
+  background-color: var(--gold);
+  color: var(--black-color);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.btn-ghost {
+  padding: 16px 24px;
+  background-color: #fff;
+  color: var(--black-color);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  padding: 12px 24px;
+  background: #fff;
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  border: #171717 solid 1px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.btn-lg {
+  padding: 16px 84px;
+}
+.btn-md {
+  padding: 16px 32px;
+}
+button:disabled {
+  opacity: 50%;
+  pointer-events: none;
+  @extend .transition;
+}
+button:has(img, svg) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}

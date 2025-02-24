@@ -1,0 +1,232 @@
+.newsletter {
+  padding: 100px;
+  background-color: var(--black-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  .col {
+    max-width: 460px;
+    width: 100%;
+    h1 {
+      font-weight: 500;
+      color: #fff;
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: -0.2px;
+      margin-bottom: 8px;
+    }
+    span {
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: -0.2px;
+      font-weight: 500;
+      color: var(--text-color);
+    }
+  }
+  .newsletter_form {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    .input {
+      background-color: var(--text-color);
+      padding: 12px 117px;
+      border-bottom: #ffffff solid 1px;
+      input {
+        background-color: transparent;
+        outline: none;
+        border: none;
+        color: #fff;
+        &::placeholder {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  padding: 80px 100px;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--black-color);
+  color: #666B71;
+
+  h1 {
+    color: #fff;
+  }
+  span {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    font-weight: 500;
+  }
+  .col {
+    max-width: 340px;
+  }
+  .with_img {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .footer_links_container {
+    display: flex;
+    gap: 160px;
+    // align-items: center;
+  }
+  .footer_links {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      margin: 0;
+      line-height: 19.6px;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    span {
+      margin-top: 8px;
+    }
+  }
+}
+.footer_socials {
+  padding: 50px 20px;
+  padding-top: 80px;
+  border-top: solid #3f3f3f 1px;
+  color: var(--text-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .col_2 {
+    display: flex;
+    gap: 30px;
+    .terms {
+      display: flex;
+      letter-spacing: -0.1px;
+      gap: 12px;
+      font-size: 11px;
+      font-weight: 400;
+      line-height: 16.5px;
+    }
+    .links {
+      display: flex;
+      gap: 24px;
+      svg {
+        cursor: pointer;
+        color: white;
+        font-size: larger;
+      }
+    }
+  }
+}
+
+.footer_container {
+  width: 100%;
+  background-color: var(--black-color);
+}
+
+@media screen and (max-width: 1290px) {
+  .newsletter {
+    .newsletter_form {
+      .input {
+        padding: 12px 50px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1095px) {
+  .newsletter {
+    padding: 44px 24px;
+    .newsletter_form {
+      .input {
+        padding: 12px 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 975px) {
+  footer {
+    padding: 44px 24px;
+  }
+  .newsletter {
+    text-align: center;
+    gap: 32px;
+    .newsletter_form {
+      flex-direction: column;
+    }
+    flex-direction: column;
+    .col {
+      width: 100%;
+      max-width: 700px;
+    }
+    .newsletter_form {
+      width: 100%;
+      h1 {
+        text-align: center;
+      }
+      max-width: 500px;
+      .input {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 875px) {
+  .footer_socials {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    .col_2 {
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 12px;
+      svg {
+        font-size: 26px;
+      }
+      .terms {
+        padding-top: 14px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  footer {
+    flex-direction: column-reverse;
+    .col {
+      max-width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  footer {
+    .footer_links_container {
+      gap: 32px;
+    }
+  }
+  .newsletter {
+    .col {
+      h1 {
+        font-size: 20px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 355px) {
+  .footer_socials {
+    .col_2 {
+      .links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+        align-items: center;
+      }
+      svg {
+        font-size: 18px;
+      }
+    }
+  }
+}

@@ -1,0 +1,526 @@
+.tutor_calendar_container {
+  padding: 30px 24px;
+  // margin-top: 30px;
+  margin-top: 16px;
+  border: solid 1px #dbdcf0;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0px 0px 100px 0px rgba(77, 92, 144, 0.2509803922);
+  .header_text {
+    border-bottom: solid #dbdcf0 1px;
+    margin-bottom: 16px;
+    p {
+      font-size: 14px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 18.2px;
+      color: var(--text-color);
+      margin: 16px 0;
+    }
+  }
+  .schedule_type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // padding-bottom: 16px;
+    // border-bottom: solid #dbdcf0 1px;
+    // margin-bottom: 16px;
+
+    .column {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      span.title {
+        font-size: 20px;
+        color: var(--black-color);
+        font-weight: 700;
+        line-height: 30px;
+        letter-spacing: -0.4px;
+      }
+    }
+
+    .available_color {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      span {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+        color: var(--text-color);
+      }
+      .available_div {
+        width: 36px;
+        height: 23px;
+        background-color: #ade1af;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+.adnan_calendar {
+  background: #fff;
+  .rbc-time-view {
+    border-radius: 8px;
+  }
+  .rbc-events-container {
+    max-width: 85px;
+  }
+  .rbc-day-slot,
+  .rbc-time-column {
+    max-width: 85px;
+  }
+  .rbc-time-content {
+    max-height: 400px;
+    overflow-y: scroll;
+    // overflow-x: hidden;
+  }
+  .rbc-toolbar {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 767px) {
+      flex-direction: row !important;
+    }
+  }
+  .rbc-header {
+    max-width: 85px;
+
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 18px;
+      color: var(--text-color);
+    }
+  }
+  .rbc-btn-group {
+    display: flex;
+    align-items: center;
+  }
+  .rbc-toolbar-label {
+    flex: auto;
+
+    flex-grow: 0;
+    min-width: auto;
+    max-width: 100%;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+  }
+  .rbc-allday-cell,
+  .rbc-allday-events {
+    display: none;
+  }
+  .rbc-events-container {
+    margin-right: 0 !important;
+  }
+  .rbc-time-content {
+    border: none;
+  }
+  .rbc-time-slot {
+    border: solid #dbdcf0 1px;
+    border-radius: 4px;
+  }
+  .rbc-time-slot:has(.rbc-label) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .rbc-label {
+      color: var(--text-color);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 18px;
+      text-align: left;
+    }
+  }
+  .rbc-event {
+    background-color: #ade1af;
+    border: solid #dbdcf0 1px;
+    border-radius: 4px;
+    .rbc-event-content {
+      display: none;
+    }
+    .rbc-event-label {
+      display: none;
+    }
+  }
+  .rbc-timeslot-group {
+    // width: 85px;
+    border-bottom: none;
+    min-height: 70px;
+  }
+  .rbc-events-container {
+    border: none;
+  }
+  .rbc-day-slot {
+    border: none;
+  }
+  .rbc-time-column {
+    border: none;
+  }
+  .rbc-timeslot-group {
+    border: none;
+  }
+  .rbc-time-slot {
+    // width: 85px;
+    min-height: 40px !important;
+  }
+  .rbc-time-gutter {
+    .rbc-time-slot {
+      border-radius: 0 !important;
+    }
+  }
+}
+
+.booking_schedule_overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px 30px;
+  display: flex;
+  z-index: 999999999999;
+  justify-content: center;
+  max-height: 100vh;
+  align-items: center;
+  overflow: auto;
+  // .tutor_outer_calendar_container {
+  //   margin-top: 30px;
+  //   .adnan_calendar_2 {
+  //     .rbc-time-content {
+  //       max-height: 300px;
+  //     }
+  //   }
+  // }
+
+  // .tutor_calendar_container {
+  //   position: relative;
+  //   max-width: 840px;
+  //   // align-self: flex-start;
+  //   width: 100%;
+
+  //   .rbc-header {
+  //     max-width: 100% !important;
+  //   }
+
+  //   .rbc-day-slot,
+  //   .rbc-time-column {
+  //     max-width: 100% !important;
+  //   }
+  //   .rbc-events-container {
+  //     max-width: 100% !important;
+  //   }
+  //   .rbc-day-slot,
+  //   .rbc-time-column {
+  //     max-width: 100% !important;
+  //   }
+  // }
+  // .schedule_type {
+  //   padding-bottom: 20px;
+
+  //   h1 {
+  //     font-size: 32px;
+  //     font-weight: 700;
+  //     line-height: 48px;
+  //     letter-spacing: -0.3px;
+  //   }
+  // }
+  // .buttons {
+  //   margin-top: 16px;
+  //   display: flex;
+  //   justify-content: space-between;
+  // }
+  // .plans {
+  //   display: flex;
+  //   gap: 8px;
+  //   padding-bottom: 20px;
+  //   .plan {
+  //     padding: 12px 16px;
+  //     width: 100%;
+  //     border: solid 2px var(--primary-color);
+  //     border-radius: 8px;
+  //     display: flex;
+  //     flex-direction: column;
+  //     gap: 6px;
+  //     color: var(--text-color);
+  //     span.title {
+  //       font-size: 14px;
+  //       font-weight: 500;
+  //       line-height: 16.8px;
+  //       letter-spacing: 0.02em;
+  //     }
+  //     span.desc {
+  //       font-size: 16px;
+  //       font-weight: 700;
+  //       line-height: 19.2px;
+  //       letter-spacing: 0.02em;
+  //     }
+  //   }
+  // }
+  // .selected_date_container {
+  //   display: flex;
+  //   gap: 10px;
+  //   align-items: center;
+  //   span {
+  //     font-size: 14px;
+  //     font-weight: 500;
+  //     line-height: 16.8px;
+  //     letter-spacing: 0.02em;
+  //     color: var(--text-color);
+  //   }
+  //   span.date {
+  //     padding: 12px 16px;
+  //     background-color: #23b730;
+  //     border-radius: 50px;
+  //     color: #fff;
+  //     font-size: 14px;
+  //     font-weight: 500;
+  //     line-height: 16.8px;
+  //     letter-spacing: 0.02em;
+  //   }
+  // }
+}
+.tutor_outer_calendar_container {
+  margin-top: 30px;
+  .adnan_calendar_2 {
+    .rbc-time-content {
+      max-height: 300px;
+    }
+  }
+}
+
+.tutor_calendar_container {
+  position: relative;
+  max-width: 840px;
+  // align-self: flex-start;
+  width: 100%;
+
+  .rbc-header {
+    max-width: 100% !important;
+  }
+
+  .rbc-day-slot,
+  .rbc-time-column {
+    max-width: 100% !important;
+  }
+  .rbc-events-container {
+    max-width: 100% !important;
+  }
+  .rbc-day-slot,
+  .rbc-time-column {
+    max-width: 100% !important;
+  }
+}
+.schedule_type {
+  padding-bottom: 20px;
+
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 48px;
+    letter-spacing: -0.3px;
+  }
+}
+.buttons {
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+.plans {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 20px;
+  .plan {
+    padding: 12px 16px;
+    width: 100%;
+    border: solid 2px var(--primary-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--text-color);
+    span.title {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 16.8px;
+      letter-spacing: 0.02em;
+    }
+    span.desc {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 19.2px;
+      letter-spacing: 0.02em;
+    }
+  }
+}
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; // If you want dots under the hoverable text
+
+  .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    // Position the tooltip text
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+
+    // Fade in tooltip
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #555 transparent transparent transparent;
+    }
+  }
+
+  &:hover {
+    .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.selected_date_container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  max-height: 140px;
+  overflow-y: auto;
+  span {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16.8px;
+    letter-spacing: 0.02em;
+    color: var(--text-color);
+  }
+  span.date {
+    padding: 12px 16px;
+    background-color: #23b730;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16.8px;
+    letter-spacing: 0.02em;
+  }
+}
+@media screen and (max-width: 975px) {
+  .tutor_calendar_container {
+    // min-width: 750px;
+    max-height: calc(100vh - 50px);
+    overflow: auto;
+  }
+  .adnan_calendar {
+    // min-width: 750px;
+    overflow: auto;
+  }
+}
+@media screen and (max-width: 500px) {
+  .tutor_calendar_container {
+    // min-width: 750px;
+    overflow: auto;
+  }
+  .adnan_calendar {
+    // min-width: 750px;
+    overflow: auto;
+    .rbc-time-view {
+      min-width: 650px;
+      overflow: auto;
+    }
+  }
+}
+
+@media screen and (max-width: 975px) {
+  .tutor_calendar_container {
+    .plans {
+      flex-wrap: wrap;
+      align-content: center;
+      .plan {
+        max-width: 175px;
+        // flex-grow: 1;
+      }
+    }
+    .selected_date_container {
+      flex-direction: column;
+    }
+  }
+}
+
+@media screen and (max-width: 685px) {
+  .tutor_calendar_container {
+    .plans {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px; /* Adjust gap between items */
+
+      .plan {
+        flex: 1 1 145px;
+        max-width: 100%; /* Adjusting for gap */
+      }
+
+      /* Make the single item take full width */
+      &:only-child .plan {
+        flex: 1 1 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .booking_schedule_overlay {
+    padding: 20px 10px;
+    .tutor_calendar_container {
+      .buttons {
+        flex-direction: column-reverse;
+        gap: 8px;
+      }
+      // .plans {
+      //   flex-wrap: wrap;
+      //   align-content: center;
+      //   .plan {
+      //     max-width: 175px;
+      //     // flex-grow: 1;
+      //   }
+      // }
+      .selected_date_container {
+        flex-direction: column;
+      }
+      .rbc-toolbar {
+        flex-wrap: nowrap !important;
+      }
+      .rbc-toolbar-label {
+        color: black;
+        font-size: 12px;
+      }
+      .adnan_calendar {
+        .rbc-time-view {
+          min-width: 450px;
+        }
+      }
+    }
+  }
+}

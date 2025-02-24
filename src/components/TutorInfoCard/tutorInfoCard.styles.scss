@@ -1,0 +1,155 @@
+.tutor_info_card {
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 32px;
+  width: 344px;
+  min-width: 344px;
+  max-width: 344px;
+  box-shadow: 0px 0px 100px 0px #4e4d9026;
+  align-self: flex-start;
+  .image {
+    border-radius: 32px;
+    position: relative;
+    display: flex;
+    img {
+      border-radius: 32px;
+      object-fit: cover;
+      width: 100%;
+      max-width: 296px;
+      max-height: 296px;
+      min-height: 296px;
+
+      height: 100%;
+    }
+    .is_available {
+      background-color: var(--primary-color);
+      padding: 8px 16px;
+      border-top-right-radius: 12px;
+      border-bottom-left-radius: 12px;
+      display: flex;
+      align-items: center;
+      width: min-content;
+      gap: 5px;
+      color: #fff;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  .action_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid #f1f1f9 1px;
+    padding-bottom: 14px;
+    img {
+      cursor: pointer;
+    }
+    button {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+  }
+  .rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 0;
+    gap: 4px;
+
+    span {
+      color: var(--text-color);
+      font-size: 14px;
+      line-height: 21px;
+      letter-spacing: 2%;
+      font-weight: 700;
+    }
+    .stars_container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+  .start_booking_buttons {
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 12px;
+    border-top: #4e4d9026 solid 1px;
+
+    gap: 12px;
+    button {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      &:first-child {
+        font-weight: 700;
+        letter-spacing: 2%;
+        line-height: 21px;
+      }
+    }
+  }
+  .tutor_lesson_location_picker {
+    .rate_row {
+      display: flex;
+      flex-direction: column;
+      .starting {
+        font-size: 10px;
+      }
+    }
+    &:nth-child(5) {
+      border-bottom: none;
+    }
+    margin-bottom: 12px;
+    h1 {
+      margin: 0;
+      font-size: 14px;
+      margin: 12px 0;
+      font-weight: 700;
+    }
+    .row {
+      padding: 4px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      select {
+        max-width: 160px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      span {
+        color: var(--text-color);
+      }
+      span.answer {
+        font-weight: 700;
+        font-size: 16px;
+        letter-spacing: -0.2px;
+        line-height: 24px;
+        padding: 6px 12px;
+        color: var(--black-color);
+      }
+      select {
+        border: solid var(--primary-color) 1px;
+        background-color: #d3e9fd;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: -0.2px;
+        line-height: 24px;
+        padding: 6px 12px;
+      }
+    }
+  }
+  .question {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    cursor: pointer;
+  }
+}

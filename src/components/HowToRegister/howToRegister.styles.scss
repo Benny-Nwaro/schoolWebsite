@@ -1,0 +1,53 @@
+.teacher_how_to_register {
+  padding: 100px 160px;
+  background-color: var(--dark-blue);
+  .mobile {
+    display: none;
+  }
+  .info_container {
+    margin: 0 auto;
+    max-width: 1100px;
+  }
+  h1 {
+    color: #fff;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -2px;
+    margin: 0;
+  }
+  img {
+    width: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+  .button_container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 44px;
+  }
+}
+@media screen and (max-width: 975px) {
+  .teacher_how_to_register {
+    h1 {
+      text-align: center;
+    }
+    img {
+      display: none;
+    }
+    .mobile {
+      display: block;
+      object-fit: contain;
+      max-height: 850px;
+      margin-top: 80px;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .teacher_how_to_register {
+    padding: 100px 24px;
+    h1 {
+      font-size: 40px;
+    }
+  }
+}

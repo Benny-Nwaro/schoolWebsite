@@ -1,0 +1,138 @@
+.tutor_search_card {
+  display: flex;
+  flex-direction: column;
+
+  padding: 24px;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 24px;
+  background-color: #fff;
+  cursor: pointer;
+  border: solid transparent 2px;
+  &:hover {
+    border: solid var(--primary-color) 2px;
+  }
+  box-shadow: 0px 0px 100px 0px #4d5c9040;
+
+  .column_container {
+    display: flex;
+    // gap: 30px;
+    padding-bottom: 16px;
+  }
+  .pers_info {
+    margin-left: 16px;
+    .name {
+      display: flex;
+      gap: 8px;
+      span {
+        font-size: 20px;
+        color: var(--black-color);
+        font-weight: 700;
+        line-height: 30px;
+        letter-spacing: 0.02em;
+      }
+    }
+    .rating {
+      .stars {
+        display: flex;
+        gap: 2px;
+        align-items: center;
+        span {
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 24px;
+          color: var(--text-color);
+          letter-spacing: 0.02em;
+        }
+      }
+      span.reviews {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0.02em;
+        color: var(--text-color);
+        margin-top: 2px;
+      }
+    }
+    .tutor_info {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      span {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        color: var(--text-color);
+      }
+      span:has(img) {
+        display: flex;
+        align-items: flex-start;
+        gap: 4px;
+        img {
+          width: 14px;
+          margin-top: 6px;
+        }
+      }
+    }
+  }
+  .column_action {
+    max-width: 175px;
+    margin-left: auto;
+    .price {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+      .old_price {
+        font-size: 15px;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 22.5px;
+        color: var(--grey-color);
+        text-decoration: line-through;
+      }
+      .new_price {
+        font-size: 19px;
+        font-weight: 700;
+        line-height: 28.5px;
+        color: var(--text-color);
+      }
+    }
+    .button {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      button {
+        font-weight: 700;
+        white-space: nowrap;
+      }
+    }
+  }
+  .image {
+    width: 185px;
+    height: 185px;
+    border-radius: 20px;
+    box-shadow: 4.31px 8.63px 8.63px 0px #80808012;
+
+    img {
+      border-radius: 20px;
+      width: 100%;
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+  .row {
+    p.description {
+      margin: 0;
+      border-top: #dbdcf0 solid 1px;
+      padding-top: 16px;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 20.8px;
+      letter-spacing: 0.02em;
+      color: var(--text-color);
+    }
+  }
+}

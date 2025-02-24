@@ -1,0 +1,55 @@
+.student_review {
+  display: flex;
+  color: #fff;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--black-color);
+  border-radius: 16px;
+  min-width: 300px;
+  .name {
+    font-weight: 600;
+    span {
+      color: var(--grey-color);
+      line-height: 16.8px;
+      letter-spacing: -0.4px;
+      display: inline-block;
+      max-width: 150px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  .image {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    img {
+      width: 100%;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+  }
+  .rating {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+  .text {
+    max-width: 188px;
+    p {
+      margin: 0;
+      color: var(--grey-color);
+      font-size: 12px;
+      letter-spacing: -0.3px;
+      line-height: 18px;
+      min-height: 50px;
+      display: -webkit-box; // Use the WebKit box model
+      -webkit-line-clamp: 3; // Show only 3 lines
+      line-clamp: 3;
+      -webkit-box-orient: vertical; // Box orientation set to vertical
+      overflow: hidden; // Hide any text that overflows
+      text-overflow: ellipsis; // Display an ellipsis (...) to indicate overflow
+    }
+  }
+}

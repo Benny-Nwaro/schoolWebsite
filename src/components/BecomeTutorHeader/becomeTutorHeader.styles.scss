@@ -1,0 +1,80 @@
+.career_page {
+  background-color: var(--primary-color);
+  background-image: url("../../assets/images/bg_how_to_teach.png");
+  padding-left: 50px;
+  background-size: cover;
+  overflow: hidden;
+  padding-bottom: 30px;
+  .career_page_inner {
+    max-width: 1300px;
+    display: flex;
+    justify-content: space-between;
+    gap: 150px;
+    width: 100%;
+    margin: 0 auto;
+    .image_col {
+      img {
+        margin-right: -150px;
+      }
+    }
+  }
+  .col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .text {
+      max-width: 700px;
+    }
+    .button_container {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      span {
+        color: #fff;
+      }
+    }
+    h1 {
+      color: #fff;
+      max-width: 390px;
+      // letter-spacing: -1.2px;
+      line-height: 42px;
+      font-size: 40px;
+    }
+    p {
+      color: #fff;
+      margin: 0;
+      font-weight: 300;
+    }
+  }
+  .image_col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .career_page {
+    .career_page_inner {
+      gap: 50px;
+    }
+  }
+}
+
+@media screen and (max-width: 975px) {
+  .career_page {
+    padding: 100px 20px;
+    .career_page_inner {
+      flex-direction: column;
+      .image_col {
+        justify-content: center;
+        width: 100%;
+        img {
+          margin: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
