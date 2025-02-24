@@ -224,9 +224,9 @@ const Navbar: React.FC = () => {
 
         {/* Right-side Actions */}
         <div className="hidden lg:flex items-center space-x-6 text-sm">
-          <button className="px-2 py-1 bg-blue-500 text-white text-wrap w-fit rounded hover:bg-blue-600 text-sm">
+          {/* <button className="px-2 py-1 bg-blue-500 text-white text-wrap w-fit rounded hover:bg-blue-600 text-sm">
             Become a Tutor
-          </button>
+          </button> */}
           <div className="flex items-center text-gray-600 space-x-2 text-sm">
             <FaPhoneAlt />
             <span className="text-sm">+1 888-252-9485</span>
