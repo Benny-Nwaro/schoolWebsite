@@ -10,7 +10,7 @@ const NavLogoContainer = () => {
   };
 
   return (
-    <div className="w-12">
+    <div className="w-20">
       <div className="logo" onClick={handleClick}>
         <img src={Logo.src} alt="logo" />
       </div>
