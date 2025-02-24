@@ -2669,6 +2669,11 @@ body {
     padding-bottom: 1.5rem;
   }
 
+  .lg\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
   .lg\:pl-12 {
     padding-left: 3rem;
   }

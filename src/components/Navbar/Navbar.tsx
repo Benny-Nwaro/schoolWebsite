@@ -102,7 +102,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav hidden={showNavbar} className="bg-white shadow-md fixed top-0 w-full text-sm z-50">
-      <div className="flex items-center justify-between px-6 lg:px-20 py-4 lg:py-6 text-sm">
+      <div className="flex items-center justify-between px-6 lg:px-12 py-4 lg:py-6 text-sm">
         {/* Logo */}
         <div className="flex items-center">
           <NavLogoContainer />
@@ -224,9 +224,9 @@ const Navbar: React.FC = () => {
 
         {/* Right-side Actions */}
         <div className="hidden lg:flex items-center space-x-6 text-sm">
-          {/* <button className="px-2 py-1 bg-blue-500 text-white text-wrap w-fit rounded hover:bg-blue-600 text-sm">
+          <button className="px-2 py-1 bg-blue-500 text-white text-wrap w-fit rounded hover:bg-blue-600 text-sm">
             Become a Tutor
-          </button> */}
+          </button>
           <div className="flex items-center text-gray-600 space-x-2 text-sm">
             <FaPhoneAlt />
             <span className="text-sm">+1 888-252-9485</span>
