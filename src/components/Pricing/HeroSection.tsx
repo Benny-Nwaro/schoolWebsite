@@ -8,8 +8,9 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ title, description }) => {
   return (
-    <div className="relative bg-blue-500 text-white pb-52 pt-48 py-16 px-28">
-        <Breadcrumb
+    <div className="relative bg-blue-500 text-white pb-52 lg:pl-12 py-16 max-md:w-full max-md:px-3">
+      <div className='mt-2'>
+      <Breadcrumb
             links={[
               { name: 'Educify', url: '/' },
               { name: 'Categories', url: '/categories' },
@@ -19,9 +20,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ title, description }) => {
               { name: 'Pricing', url: '/pricing' },
             ]}
           />
-      <div className="max-w-5xl ">
-        <h1 className="text-5xl text-nowrap font-bold mb-4">{title}</h1>
-        <p className="text-2xl w-2/3 ">{description}</p>
+      </div>
+    
+      <div className="">
+        <h1 className="text-5xl text-nowrap font-bold mb-4 max-md:w-full max-md:text-lg">{title}</h1>
+        <p className="text-2xl w-2/3 max-md:w-full max-md:text-base ">{description}</p>
       </div>
     </div>
   );

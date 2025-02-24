@@ -2,7 +2,7 @@ import React from 'react';
 
 const LessonSummaryCard: React.FC = () => {
   return (
-    <div className="bg-white shadow-lg rounded-lg p-6 text-nowrap">
+    <div className="bg-white shadow-lg rounded-lg p-6 text-nowrap max-md:mx-3">
       <h3 className="font-bold text-lg mb-4">Lesson Summary</h3>
       <div className="space-y-4">
         <div>

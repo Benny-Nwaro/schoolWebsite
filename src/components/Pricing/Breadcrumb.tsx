@@ -6,8 +6,8 @@ interface BreadcrumbProps {
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ links }) => {
   return (
-    <nav className="text-sm mx-auto text-gray-200 py-4 ">
-      <ul className="flex space-x-2">
+    <nav className="text-sm mx-auto  text-gray-200 py-4 max-md:text-xs">
+      <ul className="flex space-x-2 max-md:flex-wrap">
         {links.map((link, index) => (
           <li key={index} className="flex items-center">
             <a href={link.url} className="hover:underline">

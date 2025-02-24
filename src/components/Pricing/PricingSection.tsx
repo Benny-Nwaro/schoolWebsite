@@ -44,7 +44,7 @@ const PricingPlans: React.FC = () => {
   ];
 
   return (
-    <div className="bg-gray-100 py-12">
+    <div className="bg-gray-100 py-12 max-md:px-3">
       {/* Dropdown */}
       <div className="max-w-3xl mx-auto mb-8 text-center">
         <label htmlFor="duration" className="block text-xl font-semibold text-gray-800 mb-4">

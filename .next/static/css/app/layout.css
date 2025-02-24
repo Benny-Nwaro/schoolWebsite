@@ -763,6 +763,9 @@ video {
 .top-\[-10px\] {
   top: -10px;
 }
+.top-10 {
+  top: 2.5rem;
+}
 .z-10 {
   z-index: 10;
 }
@@ -881,6 +884,9 @@ video {
 }
 .mt-8 {
   margin-top: 2rem;
+}
+.ml-12 {
+  margin-left: 3rem;
 }
 .line-clamp-3 {
   overflow: hidden;
@@ -1053,12 +1059,12 @@ video {
 .w-\[334px\] {
   width: 334px;
 }
-.w-full {
-  width: 100%;
-}
 .w-fit {
   width: -moz-fit-content;
   width: fit-content;
+}
+.w-full {
+  width: 100%;
 }
 .max-w-3xl {
   max-width: 48rem;
@@ -1693,6 +1699,9 @@ video {
 .pt-48 {
   padding-top: 12rem;
 }
+.pl-12 {
+  padding-left: 3rem;
+}
 .text-left {
   text-align: left;
 }
@@ -1727,10 +1736,6 @@ video {
 .text-7xl {
   font-size: 4.5rem;
   line-height: 1;
-}
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
 }
 .text-lg {
   font-size: 1.125rem;
@@ -2303,9 +2308,34 @@ body {
 
 @media not all and (min-width: 768px) {
 
+  .max-md\:absolute {
+    position: absolute;
+  }
+
+  .max-md\:top-0 {
+    top: 0px;
+  }
+
+  .max-md\:top-8 {
+    top: 2rem;
+  }
+
+  .max-md\:top-20 {
+    top: 5rem;
+  }
+
+  .max-md\:top-60 {
+    top: 15rem;
+  }
+
   .max-md\:mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .max-md\:mx-3 {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
   }
 
   .max-md\:mb-8 {
@@ -2348,6 +2378,10 @@ body {
     flex-direction: column;
   }
 
+  .max-md\:flex-wrap {
+    flex-wrap: wrap;
+  }
+
   .max-md\:gap-12 {
     gap: 3rem;
   }
@@ -2360,6 +2394,18 @@ body {
     --tw-space-x-reverse: 0;
     margin-right: calc(0.5rem * var(--tw-space-x-reverse));
     margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .max-md\:space-x-1 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(0.25rem * var(--tw-space-x-reverse));
+    margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .max-md\:space-y-10 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-y-reverse: 0;
+    margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
+    margin-bottom: calc(2.5rem * var(--tw-space-y-reverse));
   }
 
   .max-md\:text-wrap {
@@ -2379,6 +2425,11 @@ body {
   .max-md\:py-5 {
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
+  }
+
+  .max-md\:px-3 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
   }
 
   .max-md\:pb-10 {
@@ -2437,6 +2488,11 @@ body {
   .max-md\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
+  }
+
+  .max-md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .max-md\:font-medium {
@@ -2579,6 +2635,18 @@ body {
     position: static;
   }
 
+  .lg\:absolute {
+    position: absolute;
+  }
+
+  .lg\:relative {
+    position: relative;
+  }
+
+  .lg\:top-20 {
+    top: 5rem;
+  }
+
   .lg\:mt-0 {
     margin-top: 0px;
   }
@@ -2654,6 +2722,11 @@ body {
     padding-right: 0px;
   }
 
+  .lg\:px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
   .lg\:px-20 {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -2669,13 +2742,17 @@ body {
     padding-bottom: 1.5rem;
   }
 
-  .lg\:px-12 {
-    padding-left: 3rem;
-    padding-right: 3rem;
+  .lg\:px-32 {
+    padding-left: 8rem;
+    padding-right: 8rem;
   }
 
   .lg\:pl-12 {
     padding-left: 3rem;
+  }
+
+  .lg\:pt-10 {
+    padding-top: 2.5rem;
   }
 
   .lg\:text-left {
