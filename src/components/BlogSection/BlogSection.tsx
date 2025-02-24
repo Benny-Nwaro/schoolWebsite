@@ -39,8 +39,8 @@ const BlogSection: React.FC = () => {
   return (
     <section className="py-12 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-5xl font-bold text-gray-900 text-center">Latest from the Educify Blog</h2>
-        <p className="text-gray-600 text-center mt-2">Stay informed with insights, tips, and the latest trends in online learning.</p>
+        <h2 className="text-5xl font-bold text-gray-900 text-center max-md:text-2xl">Latest from the Educify Blog</h2>
+        <p className="text-gray-600 text-center mt-2 max-md:text-left">Stay informed with insights, tips, and the latest trends in online learning.</p>
         <p className="text-black text-left mt-2">Categories</p>
 
 

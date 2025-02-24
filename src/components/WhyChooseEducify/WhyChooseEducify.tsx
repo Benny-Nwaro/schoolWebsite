@@ -35,13 +35,13 @@ const WhyChooseEducify: React.FC = () => {
   ];
 
   return (
-    <div className="mx-20 py-16 px-8 max-md:w-full max-md:px-3">
+    <div className=" py-16 px-8 max-md:w-full ">
       {/* Header Section */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl lg:text-4xl font-bold text-gray-800">
+      <div className="text-center max-md:w-full mb-12">
+        <h2 className="text-3xl lg:text-4xl max-md:w-full max-md:text-2xl font-bold text-gray-800">
           Why Choose Educify?
         </h2>
-        <p className="text-gray-600 mx-auto w-2/4 mt-4 text-lg">
+        <p className="text-gray-600 mx-auto w-2/4  max-md:w-full mt-4 text-lg">
           Learn from global experts your way through online, in-person, and self-paced courses at guaranteed affordable prices.
         </p>
       </div>

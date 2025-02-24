@@ -10,7 +10,7 @@ import avar4 from "@/src/assets/images/avar4.jpeg";
 
 const HeroSection: React.FC = () => {
   return (
-    <div className="flex flex-col lg:flex-row bg-black text-white min-h-screen pt-32 mt-20 px-6 md:px-16 lg:px-20">
+    <div className="flex flex-col lg:flex-row bg-black text-white min-h-screen pt-32 mt-20 px-6 md:px-16 lg:px-20 max-md:mt-5">
       {/* Left Section */}
       <div className="flex flex-col lg:w-1/2 justify-between space-y-10 lg:space-y-0">
         <div className="text-center lg:text-left">

@@ -5,8 +5,8 @@ import HeroImage2 from "@/src/assets/images/Hero2image2.png";
 
 const HeroSection2: React.FC = () => {
   return (
-    <section className="relative bg-blue-900 text-white py-16 px-6">
-      <div className="max-w-5xl mx-auto text-center py-16">
+    <section className="relative bg-blue-900 text-white py-16 px-6 max-md:py-5">
+      <div className="max-w-5xl mx-auto text-center py-16 max-md:py-5">
         <h1 className="text-4xl md:text-5xl lg:text-6xl  font-bold leading-tight">
           Transform your learning journey
           <br />

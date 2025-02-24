@@ -124,7 +124,7 @@ const Navbar: React.FC = () => {
           }`}
         >
               {/* Subjects Menu */}
-              <li className="group relative cursor-pointer px-6 py-3 lg:py-0 lg:px-0">
+              <li className="group relative cursor-pointer px-6 py-3 lg:py-0 lg:px-0 text-base">
             <div
               className="flex items-center hover:text-blue-500"
               onClick={() => setSubjectsOpen(!subjectsOpen)}
@@ -137,16 +137,16 @@ const Navbar: React.FC = () => {
               )}
             </div>
             {subjectsOpen && (
-              <div className="absolute bg-white shadow-lg py-2 mt-2 rounded">
+              <div className="absolute bg-white shadow-lg py-2 mt-2 rounded z-50 max-md:mr-5">
                 <div className="flex flex-col space-y-12 max-w-xl p-4 bg-white shadow-2xl rounded-lg">
                   {skills.map((skill, index) => (
                     <a
                       key={index}
                       href={skill.url}
-                      className="flex items-start space-x-8 hover:scale-105 transition-transform"
+                      className="flex items-start space-x-8 max-md:space-x-2 hover:scale-105 transition-transform"
                     >
                       <div
-                        className={`w-10 h-10 flex items-center justify-center ${skill.color}`}
+                        className={`w-10 h-10 max-md:w-8 flex items-center justify-center ${skill.color}`}
                       >
                         <img
                           src={skill.icon.src}
@@ -155,11 +155,11 @@ const Navbar: React.FC = () => {
                         />
                       </div>
                       <div>
-                        <h3 className="text-lg font-bold text-gray-900">
+                        <h3 className="text-lg font-bold text-gray-900 max-md:text-sm">
                           
                           {skill.title}
                         </h3>
-                        <p className="text-sm text-gray-600 text-nowrap">{skill.description}</p>
+                        <p className="text-sm text-gray-600 text-nowrap max-md:text-xs max-md:text-wrap">{skill.description}</p>
                       </div>
                     </a>
                   ))}
@@ -168,7 +168,7 @@ const Navbar: React.FC = () => {
             )}
           </li>
             {/* Grades Menu */}
-            <li className="group relative cursor-pointer px-6 py-3 lg:py-0 lg:px-0">
+            <li className="group relative cursor-pointer px-6 py-3 lg:py-0 lg:px-0 text-base">
             <div
               className="flex items-center hover:text-blue-500"
               onClick={() => setGradesOpen(!gradesOpen)}
@@ -188,14 +188,14 @@ const Navbar: React.FC = () => {
                       key={index}
                       className="flex items-center space-x-4 hover:scale-105 transition-transform"
                     >
-                      <div className="w-10 h-10 flex-shrink-0 text-blue-500">
+                      <div className="w-10 h-10 max-md:w-5 flex-shrink-0 text-blue-500">
                         <img
                           src={grade.icon.src}
                           alt={`${grade.title} Icon`}
                           className="w-full h-full object-contain"
                         />
                       </div>
-                      <h3 className="text-xl font-semibold text-gray-800 text-nowrap">
+                      <h3 className="text-xl font-semibold text-gray-800 text-nowrap max-md:text-lg max-md:font-medium">
                         {grade.title}
                       </h3>
                     </div>
@@ -223,7 +223,7 @@ const Navbar: React.FC = () => {
         </ul>
 
         {/* Right-side Actions */}
-        <div className="hidden lg:flex items-center space-x-6">
+        <div className="hidden lg:flex items-center space-x-6 text-base">
           <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
             Become a Tutor
           </button>

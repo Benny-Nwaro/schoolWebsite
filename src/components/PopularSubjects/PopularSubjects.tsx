@@ -37,10 +37,10 @@ const PopularSubjects: React.FC = () => {
     <div className="bg-white py-16 px-6 lg:px-20">
       {/* Header Section */}
       <div className="text-center mb-12">
-        <h2 className="text-3xl lg:text-4xl font-bold text-black">
+        <h2 className="text-3xl lg:text-4xl font-bold text-black max-md:text-2xl">
           Most Popular Subjects on Educify
         </h2>
-        <p className="text-gray-600 w-2/5 mx-auto mt-4 text-lg">
+        <p className="text-gray-600 w-2/5 mx-auto mt-4 text-lg max-md:w-full">
           Explore a wide range of subjects taught by Educify's global network of
           expert instructors.
         </p>

@@ -6,7 +6,7 @@ const HowEducifyWorks: React.FC = () => {
   const steps = [
     {
       id: 1,
-      icon: "📘", // Replace with your own icon or SVG
+      icon: "📘", 
       title: "Select Your Course",
       description: "Browse through available subjects and levels to find the perfect match.",
     },
@@ -25,32 +25,32 @@ const HowEducifyWorks: React.FC = () => {
   ];
 
   return (
-    <div className="bg-blue-900 py-16 px-6 lg:px-20">
+    <div className="bg-blue-900 py-16 px-6 lg:px-20 max-md:w-full">
       {/* Header Section */}
-      <div className="text-center mb-12">
-        <h2 className="text-3xl lg:text-4xl font-bold text-white">
+      <div className="text-center mb-12 max-md:w-full">
+        <h2 className="text-3xl lg:text-4xl font-bold text-white max-md:text-2xl">
           How Educify Works
         </h2>
-        <p className="text-blue-200 mt-4 w-2/4 mx-auto text-lg">
+        <p className="text-blue-200 mt-4 w-2/4 max-md:w-full mx-auto text-lg">
           Educify connects you with expert teachers worldwide through flexible
           learning formats and affordable pricing to fit your needs.
         </p>
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-col lg:flex-row gap-12 items-center">
+      <div className="flex flex-col lg:flex-row gap-12 items-center max-md:w-full">
         {/* Steps Section */}
-        <div className="flex flex-col gap-20 lg:w-1/3 mx-auto">
+        <div className="flex flex-col gap-20 lg:w-1/3  mx-auto max-md:gap-12">
           {steps.map((step, index) => (
-            <div key={step.id} className="flex items-center gap-4">
+            <div key={step.id} className="flex items-center gap-4 max-md:gap-2">
               {/* Icon */}
-              <div className="bg-white w-14 h-14 flex items-center justify-center rounded-full shadow-md text-xl text-blue-900">
+              <div className="w-14 h-14 flex items-center justify-center rounded-full shadow-md text-xl text-blue-900">
                 {step.icon}
               </div>
               {/* Text Content */}
               <div>
-                <h3 className="text-xl font-semibold text-white">{step.title}</h3>
-                <p className="text-blue-200 mt-2">{step.description}</p>
+                <h3 className="text-xl max-md:text-lg max-md:text-left font-semibold text-white">{step.title}</h3>
+                <p className="text-blue-200 max-md:text-wrap mt-2">{step.description}</p>
               </div>
             </div>
           ))}
