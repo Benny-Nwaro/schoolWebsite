@@ -17,7 +17,7 @@ import VideoPlayer from "@/src/components/YouTubeEmbed/YouTubeEmbed";
 import TestTutorSchedule from "@/src/components/TutorSchedule/TestBookingSchedule";
 import TutorRecommendations from "@/src/components/TutorReviews/TutorRecommendations";
 import { Tutor } from "@/src/types/types";
-import "@/src/components/Navbar/navbar.styles.scss";
+// import "@/src/components/Navbar/navbar.styles.scss";
 import "./tutorById.styles.scss";
 import TutorSchedule from "@/src/components/TutorSchedule/TutorSchedule";
 
