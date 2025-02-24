@@ -1056,6 +1056,10 @@ video {
 .w-full {
   width: 100%;
 }
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
+}
 .max-w-3xl {
   max-width: 48rem;
 }

@@ -224,7 +224,7 @@ const Navbar: React.FC = () => {
 
         {/* Right-side Actions */}
         <div className="hidden lg:flex items-center space-x-6 text-sm">
-          <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">
+          <button className="px-2 py-1 bg-blue-500 text-white text-wrap w-fit rounded hover:bg-blue-600 text-sm">
             Become a Tutor
           </button>
           <div className="flex items-center text-gray-600 space-x-2 text-sm">
