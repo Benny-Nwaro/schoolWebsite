@@ -213,9 +213,9 @@ const Navbar: React.FC = () => {
 
           {/* Mobile Buttons */}
           <div className="lg:hidden flex flex-col items-center space-y-4 py-4 border-t">
-            <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 w-4/5">
+            {/* <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 w-4/5">
               Become a Tutor
-            </button>
+            </button> */}
             <button className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 w-4/5">
               Book a free trial
             </button>
