@@ -17,7 +17,7 @@ import VideoPlayer from "@/src/components/YouTubeEmbed/YouTubeEmbed";
 import TestTutorSchedule from "@/src/components/TutorSchedule/TestBookingSchedule";
 import TutorRecommendations from "@/src/components/TutorReviews/TutorRecommendations";
 import { Tutor } from "@/src/types/types";
-// import "@/src/components/Navbar/navbar.styles.scss";
+import "@/src/components/Navbar/navbar.styles.scss";
 import "./tutorById.styles.scss";
 import TutorSchedule from "@/src/components/TutorSchedule/TutorSchedule";
 
@@ -26,7 +26,7 @@ const TutorPage = ({ tutor }: { tutor: Tutor }) => {
 
   return (
     <>
-      <div className="tutor_page">
+      <div className="tutor_page max-md:mt-16">
         <TutorHeader
           description={tutor?.description}
           name={`${tutor?.user?.name} ${tutor.user.lastName}`}
@@ -52,7 +52,6 @@ const TutorPage = ({ tutor }: { tutor: Tutor }) => {
                     <TutorEducation educations={tutor?.education} />
                   )}
                   <TutorSchedule availability={tutor?.availability || []} />
-                  {/* <TestTutorSchedule availability={tutor?.availability || []} /> */}
                   {!!tutor?.certificates?.length && (
                     <TutorCertification certificates={tutor?.certificates} />
                   )}

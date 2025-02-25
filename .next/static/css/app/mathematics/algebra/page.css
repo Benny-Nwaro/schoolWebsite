@@ -1,0 +1,1555 @@
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[13].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[13].use[5]!./app/tutors/tutors.styles.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.search_tutors {
+  min-height: 100vh;
+  background-color: #f0f0f8;
+}
+.search_tutors .map_section h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29.05px;
+  letter-spacing: -0.4px;
+  padding: 44px 0;
+  text-align: center;
+}
+.search_tutors .tutor_search_card_container {
+  width: calc(100% - 320px);
+  position: relative;
+  max-width: 260px;
+}
+.search_tutors .tutor_search_bar {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: solid #9193a5 1px;
+  border-radius: 50px;
+  position: relative;
+  max-width: 1130px;
+}
+.search_tutors .tutor_search_bar img {
+  position: absolute;
+  left: 10px;
+}
+.search_tutors .tutor_search_bar input {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 20px 24px;
+  padding-left: 40px;
+  outline: none;
+}
+.search_tutors .search_results {
+  color: var(--text-color);
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 24.2px;
+  letter-spacing: -0.4px;
+}
+.search_tutors .search_results .bold {
+  font-style: normal;
+}
+.search_tutors .search_tutors_container {
+  display: flex;
+  flex-direction: column;
+}
+.search_tutors .search_tutors_container .view_all_tutors {
+  display: flex;
+  justify-content: center;
+}
+.search_tutors .search_tutors_container .filter_btn_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+}
+.search_tutors .search_tutors_container .filter_btn_container .filter-button {
+  justify-content: center;
+}
+
+.search_faqs {
+  background-color: #f0f0f8 !important;
+}
+.search_faqs h1 {
+  text-align: left !important;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 57.6px;
+  letter-spacing: -2px;
+}
+.search_faqs .faq-container {
+  background-color: #f0f0f8 !important;
+  max-width: 100% !important;
+}
+
+.similar_tutor_search_card_container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 30px;
+}
+
+@media screen and (max-width: 975px) {
+  .search_tutors .lesson_filters_hide {
+    display: none;
+  }
+  .search_tutors .tutor_search_card_container {
+    width: 100%;
+  }
+  .search_tutors .tutor_search_card_container .tutor_search_card {
+    position: relative;
+  }
+  .search_tutors .tutor_search_card_container .tutor_search_card .row .column_container {
+    flex-wrap: wrap;
+  }
+  .search_tutors .tutor_search_card_container .tutor_search_card .row .column_container .column_action {
+    margin-left: 0;
+    width: 100% !important;
+    max-width: 100%;
+  }
+  .search_tutors .tutor_search_card_container .tutor_search_card .row .column_container .column_action .price {
+    position: absolute;
+    top: 22px;
+    right: 24px;
+  }
+  .search_tutors .tutor_search_card_container .tutor_search_card .row .column_container .column_action .button {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .search_tutors .tutor_search_card_container .tutor_search_card .row .column_container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .search_tutors .tutor_search_card_container .tutor_search_card .column_container .name {
+    margin-top: 14px;
+  }
+  .search_tutors .tutor_search_card_container .tutor_search_card .column_container .image {
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 300px;
+  }
+  .search_tutors .tutor_search_card_container .tutor_search_card .column_container .price {
+    position: static !important;
+    align-items: center;
+    justify-content: center;
+    padding-right: 90px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .search_tutors .tutor_search_card_container .tutor_search_card .name {
+    justify-content: center;
+  }
+  .search_tutors .tutor_search_card_container .tutor_search_card .stars {
+    justify-content: center;
+  }
+  .search_tutors .tutor_search_card_container .tutor_search_card .tutor_info {
+    align-items: center;
+    text-align: center;
+  }
+  .search_tutors .tutor_search_card_container .tutor_search_card .tutor_info span {
+    font-size: 12px !important;
+  }
+  .search_tutors .tutor_search_card_container .tutor_search_card .column_action .price {
+    padding: 0;
+    margin-top: 15px;
+  }
+}
+@media screen and (max-width: 975px) {
+  .desktop_filters {
+    margin: 0 20px;
+    margin-top: 40px;
+  }
+  .desktop_filters .filter_btn_container {
+    display: flex;
+    margin: 0;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center !important;
+  }
+  .desktop_filters .filter_btn_container button {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    color: var(--black-color);
+    align-self: flex-start;
+  }
+  .desktop_filters .filter_btn_container .sort_by_container {
+    margin: 0;
+  }
+  .desktop_filters .filter_btn_container .sort_by_container button {
+    display: flex;
+    justify-content: center;
+  }
+  .desktop_filters .filter_btn_container .lesson_filters {
+    padding: 0;
+  }
+}
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[13].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[13].use[5]!./src/components/Button/button.styles.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.transition, button:disabled, .btn-primary {
+  transition: opacity ease 0.3s;
+}
+
+.btn-primary {
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.btn-primary_inverted {
+  padding: 12px 24px;
+  background-color: #d3e9fd;
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.btn-dark {
+  padding: 12px 24px;
+  background-color: var(--black-color);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.btn-gold {
+  padding: 16px 24px;
+  background-color: var(--gold);
+  color: var(--black-color);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.btn-ghost {
+  padding: 16px 24px;
+  background-color: #fff;
+  color: var(--black-color);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  padding: 12px 24px;
+  background: #fff;
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  border: #171717 solid 1px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.btn-lg {
+  padding: 16px 84px;
+}
+
+.btn-md {
+  padding: 16px 32px;
+}
+
+button:disabled {
+  opacity: 50%;
+  pointer-events: none;
+}
+
+button:has(img, svg) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./node_modules/react-range-slider-input/dist/style.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************/
+.range-slider {
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background: #ddd;
+  border-radius: 4px;
+}
+.range-slider[data-vertical] {
+  height: 100%;
+  width: 8px;
+}
+.range-slider[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.range-slider .range-slider__thumb {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #2196f3;
+}
+.range-slider .range-slider__thumb:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 6px rgba(33, 150, 243, 0.5);
+}
+.range-slider[data-vertical] .range-slider__thumb {
+  left: 50%;
+}
+.range-slider .range-slider__thumb[data-disabled] {
+  z-index: 2;
+}
+.range-slider .range-slider__range {
+  position: absolute;
+  z-index: 1;
+  transform: translate(0, -50%);
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  background: #51adf6;
+}
+.range-slider[data-vertical] .range-slider__range {
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.range-slider input[type="range"] {
+  -webkit-appearance: none;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  background-color: transparent;
+}
+.range-slider input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+}
+.range-slider input[type="range"]::-moz-range-thumb {
+  width: 0;
+  height: 0;
+  border: 0;
+}
+.range-slider input[type="range"]:focus {
+  outline: 0;
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[13].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[13].use[5]!./src/components/FilterPanel/filterPanel.styles.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+body:has(.filter_panel_container) {
+  overflow: hidden;
+}
+
+.filter-button {
+  padding: 8px 20px;
+  border: 1px solid var(--primary-color);
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.filter-button:hover {
+  background-color: rgba(211, 233, 253, 0.4);
+}
+.filter-button img {
+  width: 20px;
+}
+
+.filter-container {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+.filter-container .dropdown {
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #bdc3c7;
+  z-index: 100;
+  width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+}
+.filter-container .dropdown .dropdown-title {
+  padding: 10px;
+  font-weight: bold;
+}
+.filter-container .dropdown .option-label {
+  display: flex;
+  align-items: center;
+}
+.filter-container .dropdown.open {
+  opacity: 1;
+  transform: translateY(5px);
+  pointer-events: auto;
+}
+.filter-container .dropdown .dropdown-items {
+  padding: 5px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.filter-container .dropdown .dropdown-item {
+  cursor: pointer;
+  text-align: left;
+  color: #2c3e50;
+  transition: background-color 0.2s;
+}
+.filter-container .dropdown .dropdown-item .option-label {
+  padding: 8px 6px;
+}
+.filter-container .dropdown .dropdown-item:hover, .filter-container .dropdown .dropdown-item.selected {
+  background-color: rgba(0, 163, 255, 0.3);
+  color: var(--secondary-color);
+}
+
+.price_filter_dropDown .dropdown {
+  margin-left: -50px !important;
+}
+.price_filter_dropDown .dropdown.open {
+  transform: translateY(5px) !important;
+}
+
+.filter_panel .filter_row:has(.filter_drop_slider) {
+  padding-right: 0 !important;
+}
+.filter_panel .filter_row:has(.filter_drop_slider) .custom_range_slider {
+  min-width: auto;
+  width: 100%;
+}
+
+.dropdown:has(.filter_drop_slider) .filter_drop_slider {
+  padding: 10px 5px;
+}
+.dropdown:has(.filter_drop_slider) .filter_drop_slider .custom_slider_number .custom_range_slider {
+  min-width: auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.more_filter_outer_container {
+  display: flex;
+  align-items: center;
+}
+.more_filter_outer_container .dropdown {
+  margin-left: -320px !important;
+  margin-top: 190px;
+}
+
+.lesson_filters_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom_slider_number {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.rc_z {
+  z-index: 10;
+}
+
+.lesson_filters {
+  padding: 20px 30px;
+  padding-bottom: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  display: flex;
+  position: relative;
+}
+.lesson_filters span {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--black-color);
+}
+.lesson_filters .filters_reset {
+  margin-left: auto;
+}
+.lesson_filters .filter-button {
+  width: 110px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  color: var(--black-color);
+}
+
+.custom_location_filter_btn_container {
+  display: flex;
+  justify-content: center;
+  padding: 10px 10px;
+}
+.custom_location_filter_btn_container .custom_location_filter_btn {
+  all: unset;
+  padding: 10px 20px;
+  border: solid red 1px;
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  background-color: #00a3ff;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.custom-search-component-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.custom-search-component-container .select__country {
+  padding: 5px;
+}
+.custom-search-component-container .select__country span {
+  font-size: 12px;
+}
+.custom-search-component-container button {
+  padding: 20px;
+  margin: 10px 20px !important;
+}
+
+.single-thumb .range-slider__thumb[data-lower] {
+  width: 0;
+}
+
+.filter_panel_container {
+  max-height: 100vh;
+  flex-direction: column;
+  align-items: center !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
+  overflow: auto;
+}
+.filter_panel_container .button_container {
+  padding: 15px 0 0 0;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.filter_panel_container .filter_panel {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  width: calc(100% - 40px);
+  border-radius: 20px;
+  padding: 30px 20px;
+  margin-top: 50px;
+  max-height: 650px;
+  overflow: auto;
+}
+.filter_panel_container .filter_panel_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.filter_panel_container .filter_panel_header h2 {
+  margin: 10px 0;
+}
+.filter_panel_container .filter_panel_header span {
+  cursor: pointer;
+}
+.filter_panel_container .filter_container {
+  display: flex;
+  flex-direction: column;
+  max-height: 70vh;
+  overflow: auto;
+}
+.filter_panel_container .filter_container h1 {
+  margin: 0;
+}
+.filter_panel_container .filter_container .filter_row {
+  padding: 10px 20px 30px;
+  padding-left: 0;
+  border-bottom: solid rgba(0, 0, 0, 0.2) 1px;
+}
+.filter_panel_container .filter_container .filter_row h3 {
+  margin: 10px 0;
+}
+.filter_panel_container .filter_container .filter_row:first-child {
+  padding-top: 0;
+}
+.filter_panel_container .filter_container .filter_row:last-child {
+  border-bottom: none;
+}
+.filter_panel_container .filter_container .filter_row .options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 200px;
+  overflow: auto;
+}
+.filter_panel_container .filter_container .filter_row .options .option_container {
+  display: flex;
+}
+.filter_panel_container .filter_container .filter_row .options .option_container .option {
+  display: flex;
+  align-items: center;
+}
+
+.filter_days {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.filter_days .day {
+  padding: 20px;
+  border: solid var(--primary-color) 3px;
+  border-radius: 7px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--secondary-color);
+  font-weight: 500;
+}
+.filter_days .day.selected {
+  background-color: var(--primary-color);
+  border-color: --primary-color;
+  color: #fff;
+}
+
+.dropdown:has(.more_filters) {
+  width: auto !important;
+}
+.dropdown:has(.more_filters) .dropdown-title {
+  display: none;
+}
+.dropdown:has(.more_filters).open {
+  transform: translateY(5px) !important;
+}
+
+.more_filters {
+  display: flex;
+}
+.more_filters .more_filter_container {
+  width: 200px;
+  border-right: solid rgba(0, 0, 0, 0.1) 1px;
+}
+.more_filters .more_filter_container:last-child {
+  border-right: none;
+}
+.more_filters h3 {
+  font-size: 16px;
+  margin-left: 10px;
+}
+.more_filters .option-label {
+  padding: 10px 0px !important;
+}
+
+.filter_btn_container {
+  display: block;
+  margin-left: 20px;
+}
+.filter_btn_container button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.filter_btn_container button img {
+  width: 17px;
+}
+
+.sort_by_container .dropdown {
+  margin-left: -50px !important;
+}
+
+@media screen and (min-width: 975px) {
+  .filter_btn_container {
+    display: none;
+  }
+}
+@media screen and (max-width: 975px) {
+  .lesson_filters_container .lesson_filters.lesson_filters_hide {
+    display: none;
+  }
+}
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[13].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[13].use[5]!./src/components/TutorSearchCardPreview/TutorSearchCardPreview.styles.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tutor__preview__modal {
+  background: #fff;
+  border-radius: 24px;
+  padding: 16px;
+  pointer-events: all;
+  position: absolute;
+  border: solid var(--primary-color) 2px;
+  right: -310px;
+  background-color: #fff;
+  top: 0;
+  width: 300px;
+  z-index: 20;
+  max-height: 530px;
+}
+.tutor__preview__modal.show_left {
+  right: 0;
+  left: -310px;
+}
+.tutor__preview__modal.show_left::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border: solid var(--primary-color) 2px;
+  border-color: #3198f5 #3198f5 #fff #fff;
+  background-color: #fff;
+  position: absolute;
+  left: auto;
+  right: -12px;
+  rotate: 46deg;
+  border-radius: 4px;
+  top: 40%;
+}
+.tutor__preview__modal .video_container {
+  overflow: hidden;
+}
+.tutor__preview__modal .video_container video {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.tutor__preview__modal .video_container iframe {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-height: 200px;
+}
+.tutor__preview__modal::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border: solid var(--primary-color) 2px;
+  border-color: #fff #fff #3198f5 #3198f5;
+  background-color: #fff;
+  position: absolute;
+  left: -12px;
+  rotate: 46deg;
+  border-radius: 4px;
+  top: 40%;
+}
+.tutor__preview__modal video {
+  -o-object-position: top;
+     object-position: top;
+  height: 150px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.tutor__preview__modal .video__section {
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+}
+.tutor__preview__modal .video__section::after {
+  content: "";
+  width: 100%;
+  height: 150px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 65px;
+}
+.tutor__preview__modal .video__section img {
+  width: 100%;
+  height: 150px;
+  border-radius: 14px;
+}
+.tutor__preview__modal .schedule .schedule_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tutor__preview__modal .schedule .schedule_header span {
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 16;
+}
+.tutor__preview__modal .schedule .schedule__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 16px;
+}
+.tutor__preview__modal .schedule .schedule__row .day_name {
+  color: var(--text-color);
+  text-transform: capitalize;
+}
+.tutor__preview__modal .schedule .schedule__row .times {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tutor__preview__modal .schedule .schedule__row .times .schedule__time {
+  background: #f1f1f9;
+  border-radius: 8px;
+  border: solid #dbdcf0 1px;
+  padding: 8px;
+}
+.tutor__preview__modal .schedule .schedule__row .times .schedule__time span {
+  font-size: 13px;
+  color: var(--text-color);
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+}
+.tutor__preview__modal .view__btn {
+  background-color: #fbf9f6;
+  color: #090f19;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+  border: none;
+  outline: none;
+  margin-top: 30px;
+  border-radius: 6px;
+  padding: 10px 0;
+}
+
+@media screen and (max-width: 975px) {
+  .tutor__preview__modal {
+    display: none;
+  }
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[13].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[13].use[5]!./src/components/SimilarTutorCard/similar_tutor_card.styles.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.similar_tutor_card {
+  height: 510px;
+  min-height: 506px;
+  max-width: 255px;
+  overflow: hidden;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  border-radius: 24px;
+  cursor: pointer;
+}
+.similar_tutor_card .tutor_experience {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}
+.similar_tutor_card .tutor_experience span {
+  padding: 12px 18px;
+  color: var(--text-color);
+  font-size: 15px;
+  white-space: nowrap;
+  font-weight: 700;
+  line-height: 19.5px;
+  letter-spacing: 0.02em;
+  border: solid var(--black-color) 1px;
+  border-radius: 50px;
+}
+.similar_tutor_card .tutor_experience img {
+  width: 40px !important;
+  height: 40px !important;
+}
+.similar_tutor_card .tutor_card_image {
+  max-width: 100%;
+  position: relative;
+  border-radius: 16px;
+  max-height: 277px;
+  height: 100%;
+  box-shadow: 5px 10px 10px 0px rgba(128, 128, 128, 0.0705882353);
+}
+.similar_tutor_card .tutor_card_image .free_trial {
+  background-color: #fff;
+  color: var(--black-color);
+  font-size: 14px;
+  font-weight: 500;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 0px 16px 0px 14px;
+  padding: 12px;
+  line-height: 14.4px;
+  letter-spacing: 2%;
+}
+.similar_tutor_card .tutor_card_image img {
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.similar_tutor_card .personal_info_row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 0;
+  margin-bottom: 12px;
+  border-bottom: solid 1px #f1f1f9;
+}
+.similar_tutor_card .personal_info_row .is_verified {
+  display: flex;
+  align-items: center;
+}
+.similar_tutor_card .personal_info_row .name_container {
+  max-width: 140px;
+}
+.similar_tutor_card .personal_info_row .name_container .name {
+  color: var(--black-color);
+  font-weight: 700;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.similar_tutor_card .personal_info_row .hourly_rate {
+  margin-left: auto;
+  color: var(--black-color);
+  font-weight: 700;
+  font-size: 18px;
+  padding: 8px 12px;
+  border-radius: 50px;
+  border: solid #f1f1f9 1px;
+  line-height: 21.6px;
+  letter-spacing: 2%;
+}
+.similar_tutor_card .personal_info_row .hourly_rate span {
+  white-space: nowrap;
+}
+.similar_tutor_card .personal_info_container {
+  padding: 0 8px;
+}
+.similar_tutor_card .tutor_other_info_container {
+  padding-bottom: 10px;
+  border-bottom: solid 1px #f1f1f9;
+}
+.similar_tutor_card .tutor_other_info_container .tutor_col {
+  display: flex;
+  gap: 4px;
+}
+.similar_tutor_card .tutor_other_info_container .tutor_other_info {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+.similar_tutor_card .tutor_other_info_container .tutor_other_info img {
+  width: 14px;
+  height: 14px;
+}
+.similar_tutor_card .tutor_other_info_container .tutor_other_info .lesson_name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.similar_tutor_card .tutor_other_info_container .tutor_other_info .lesson_name span {
+  color: var(--black-color);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14.4px;
+}
+.similar_tutor_card .tutor_other_info_container .tutor_other_info .rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.similar_tutor_card .tutor_other_info_container .tutor_other_info .rating span {
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 2%;
+  line-height: 21px;
+}
+.similar_tutor_card .tutor_other_info_container .tutor_other_info .nb_review {
+  color: var(--grey-color);
+  font-weight: 500;
+  letter-spacing: 2%;
+  line-height: 21px;
+  font-size: 12px;
+}
+.similar_tutor_card .tutor_other_info_container .lesson_location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.similar_tutor_card .tutor_other_info_container .lesson_location img {
+  width: 14px;
+  height: 14px;
+}
+.similar_tutor_card .tutor_other_info_container .lesson_location span {
+  color: var(--black-color);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14.4px;
+}
+.similar_tutor_card .tutor_other_info_container .similar_tutor_text {
+  padding: 12px 0;
+}
+.similar_tutor_card .tutor_other_info_container .similar_tutor_text p {
+  margin: 0;
+  color: var(--black-color);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16.9px;
+  letter-spacing: 0.02em;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.similar_card_with_hover {
+  max-width: 100%;
+  width: 260px;
+  padding: 8px;
+  height: 505px;
+  position: relative;
+}
+.similar_card_with_hover .tutor_card_image {
+  max-height: 250px;
+}
+.similar_card_with_hover .personal_info_container {
+  padding: 0;
+}
+.similar_card_with_hover:hover {
+  box-shadow: 0px 0px 0px 3px #3198f5;
+}
+.similar_card_with_hover:hover .tutor_card_image {
+  box-shadow: 0px 0px 0px 3px #3198f5;
+}
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[13].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[13].use[5]!./src/components/TutorMap/tutorMap.styles.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.tutor_marker {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 8px;
+  background-color: #fff;
+  border-radius: 9px;
+  position: relative;
+  max-width: 55px;
+  width: 55px;
+  justify-content: center;
+  align-items: center;
+}
+.tutor_marker.you {
+  background-color: #f73839;
+  cursor: default;
+}
+.tutor_marker.you span {
+  color: #fff;
+}
+.tutor_marker.you::after {
+  background-color: #f73839;
+}
+.tutor_marker img {
+  width: 32px;
+  height: 32px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50px;
+}
+.tutor_marker span {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0.02em;
+  color: var(--black-color);
+  white-space: nowrap;
+}
+.tutor_marker::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 22px;
+  width: 10px;
+  height: 10px;
+  rotate: 45deg;
+  border-radius: 1px;
+  background-color: #fff;
+}
+
+.tutor_map_popup {
+  padding: 8px;
+  border-radius: 24px;
+  background-color: var(--off-blue);
+  width: 183px;
+  height: 133px;
+  position: relative;
+}
+.tutor_map_popup .close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 12px;
+}
+.tutor_map_popup .button_container {
+  padding-top: 8px;
+}
+.tutor_map_popup .button_container button {
+  padding: 10px 24px;
+  width: 100%;
+}
+.tutor_map_popup .info {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%; /* Adjust this to fit your layout */
+}
+.tutor_map_popup span {
+  color: var(--black-color);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 19.5px;
+  letter-spacing: 0.02em;
+}
+.tutor_map_popup .row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.tutor_map_popup .row .multiple {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tutor_map_popup .row .rating {
+  display: flex;
+  align-items: center;
+}
+.tutor_map_popup .row .image {
+  width: 70px;
+  height: 70px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 5px 10px 10px 0px rgba(128, 128, 128, 0.0705882353);
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[13].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[13].use[5]!./src/components/TeacherFaqs/teacherFaqs.styles.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.teacher_signup_container_faq {
+  background-color: #fff;
+  padding: 100px 20px;
+}
+.teacher_signup_container_faq .faq-container {
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+.teacher_signup_container_faq .faq-container h1 {
+  font-size: 40px;
+  margin-top: 0;
+  margin-bottom: 50px;
+  text-align: center;
+  font-weight: 500;
+  color: var(--black-color);
+}
+
+.faq-item {
+  margin: 8px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  transition: all ease;
+  padding: 18px 24px;
+  box-shadow: 0px 0px 100px rgba(78, 77, 144, 0.15);
+}
+.faq-item.active .faq-question svg {
+  rotate: 180deg;
+}
+.faq-item.active .faq-answer {
+  max-height: 2700px !important;
+}
+.faq-item .faq-question {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.faq-item .faq-question h2 {
+  font-size: 14px;
+  margin: 0;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.faq-item .faq-question h2 svg {
+  width: 20px;
+  height: 20px;
+}
+.faq-item .faq-answer {
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+  max-height: 0;
+}
+.faq-item .faq-answer p {
+  padding: 10px 0;
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[13].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[13].use[5]!./src/components/LandingSearchBar/landingSearchBar.styles.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.search_bar_container {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  border: 6px solid rgba(65, 65, 88, 0.1490196078);
+  border-radius: 30px;
+  padding: 8px 24px;
+  padding-right: 8px;
+  background-color: #fff;
+  width: 100%;
+  max-width: 660px;
+  margin-top: 32px;
+}
+.search_bar_container .custom_select_container {
+  width: 100%;
+}
+.search_bar_container .custom_select_container:nth-child(1) {
+  border-right: solid #dbdcf0 1px !important;
+}
+.search_bar_container .custom_select_container .css-1u9des2-indicatorSeparator {
+  display: none;
+}
+
+.nav_search_inner {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav_search_inner.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[13].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[13].use[5]!./src/components/Popup/popup.styles.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.popup_overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px 30px;
+  max-height: 100vh;
+  align-items: center;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+}
+.popup_overlay .popup_container {
+  margin-top: 30px;
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  text-align: center;
+}
+.popup_overlay .popup_container h2 {
+  font-size: 24px;
+  color: var(--black-color);
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.3px;
+  margin-bottom: 0;
+}
+.popup_overlay .popup_container p {
+  color: var(--text-color);
+  font-weight: 500;
+  line-height: 20px !important;
+  letter-spacing: -0.3px;
+  font-size: 16px !important;
+}
+.popup_overlay .popup_container .close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  font-size: 30px;
+}
+.popup_overlay .popup_container .get_location {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.3px;
+  text-align: left;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  align-self: flex-start;
+  margin-top: 20px;
+}
+.popup_overlay .popup_container .input {
+  border: solid #dbdcf0 1px;
+  border-radius: 8px;
+  width: 100%;
+  margin: 32px 0;
+  padding: 4px 16px;
+  text-align: left;
+}
+.popup_overlay .popup_container .input input {
+  border: none;
+  outline: none;
+  width: 100%;
+}
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[13].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[13].use[5]!./src/components/SearchPageHeader/searchPageHeader.styles.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.teacher_search_header {
+  background-color: var(--off-blue);
+  padding: 30px 40px;
+  background-image: url(/_next/static/media/Vector.56a7fbec.png);
+  background-size: cover;
+  width: 100%;
+}
+.teacher_search_header .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.teacher_search_header .row .image {
+  max-width: 40%;
+}
+.teacher_search_header .row .image img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-width: 100%;
+}
+.teacher_search_header h1 {
+  color: var(--black-color);
+  max-width: 560px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38.4px;
+  letter-spacing: -2px;
+}
+.teacher_search_header p {
+  color: var(--text-color);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.3000000119px;
+  max-width: 570px;
+}
+.teacher_search_header .image_mobile {
+  display: none;
+}
+
+.tutors_search_input {
+  border: solid #9193a5 1px;
+}
+
+@media screen and (max-width: 1050px) {
+  .teacher_search_header .tutors_search_input {
+    order: 3;
+    margin: 20px auto;
+  }
+  .teacher_search_header h1,
+  .teacher_search_header p {
+    margin: 0;
+  }
+  .teacher_search_header .row {
+    flex-direction: column;
+  }
+  .teacher_search_header .col {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .teacher_search_header .image {
+    display: none;
+  }
+  .teacher_search_header .image_mobile {
+    display: flex;
+    justify-content: center;
+  }
+  .teacher_search_header .image_mobile img {
+    -o-object-fit: contain;
+       object-fit: contain;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .teacher_search_header .col .tutors_search_input {
+    gap: 8px;
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .teacher_search_header {
+    padding: 30px 20px;
+  }
+  .teacher_search_header .col .tutors_search_input {
+    gap: 4px;
+    padding-left: 8px;
+  }
+  .teacher_search_header .col .tutors_search_input button {
+    padding: 12px;
+  }
+}
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[13].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[13].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[13].use[5]!./src/components/SubjectInfoSection/SubjectInfoSection.styles.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+.subject_info_section {
+  display: flex;
+  background-color: #075092;
+  overflow: hidden;
+  justify-content: space-between;
+  max-height: 670px;
+  margin: 70px 0;
+}
+.subject_info_section .col {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 70px;
+  color: #fff;
+}
+.subject_info_section .col button {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.36px;
+  letter-spacing: -0.2px;
+}
+.subject_info_section .col h1 {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+  letter-spacing: -1px;
+  margin: 0;
+  margin-bottom: 44px;
+}
+.subject_info_section .col ul li {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  margin-bottom: 18px;
+  list-style-type: none; /* Remove default marker */
+  position: relative;
+}
+.subject_info_section .col ul li::before {
+  content: "•"; /* Unicode for bullet */
+  font-size: 28px; /* Set bullet size */
+  position: absolute;
+  left: -30px; /* Adjust position to suit */
+  top: 0;
+}
+.subject_info_section .image_container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 670px;
+  max-height: 670px;
+  width: 40%;
+}
+.subject_info_section .image_container .image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 670px;
+}
+
+@media screen and (max-width: 975px) {
+  .subject_info_section {
+    flex-direction: column;
+    max-height: 100%;
+  }
+  .subject_info_section .col {
+    width: 100%;
+    min-width: auto;
+    max-width: 100%;
+    padding: 50px 24px;
+  }
+  .subject_info_section .image_container {
+    max-width: 100%;
+    min-width: auto;
+    max-height: 100%;
+    min-height: auto;
+    width: 100%;
+  }
+  .subject_info_section .image_container .image {
+    width: 100%;
+    height: 100%;
+    min-width: auto;
+    max-width: 100%;
+  }
+}

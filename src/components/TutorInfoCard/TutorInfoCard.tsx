@@ -37,9 +37,9 @@ const TutorInfoCard = ({
  
   return (
     <>
-      <div className="tutor_info_card shadow-2xl sticky top-0 z-50">
+      <div className="tutor_info_card shadow-2xl lg:sticky lg:top-0 lg:z-50">
         <div className="image">
-          <Image src={image.url} width={296} height={296} alt="tutor" />
+          <Image src={image.url} width={296} height={296}  alt="tutor" />
           {isAvailable && (
             <div className="is_available">
               <span>Available</span>
@@ -74,7 +74,7 @@ const TutorInfoCard = ({
           <h1>Lesson Summary</h1>
           <div className="row">
             <span>Selected lesson</span>
-            <select>
+            <select className="max-md:text-black">
               {lessons.map((lesson) => (
                 <option key={lesson.id}>{lesson.title}</option>
               ))}
@@ -87,7 +87,7 @@ const TutorInfoCard = ({
                 Starting at $ {(hourlyRate / 100).toFixed(1)}/hr
               </span>
             </div>
-            <select style={{backgroundColor:"#F1F1F9"}}>
+            <select className="max-md:text-black" style={{backgroundColor:"#F1F1F9"}}>
               <option>${(hourlyRate / 100).toFixed(1)}/hr</option>
               <option>${(hourlyRate / 100).toFixed(1)}/hr</option>
               <option>${(hourlyRate / 100).toFixed(1)}/hr</option>
@@ -103,7 +103,7 @@ const TutorInfoCard = ({
           <h1>Lesson Location</h1>
           <div className="row">
             <span> Location</span>
-            <select>
+            <select className="max-md:text-black">
               {getCustomLocationArray(lessons).map((el, i) => (
                 <option key={i}>{String(el)}</option>
               ))}

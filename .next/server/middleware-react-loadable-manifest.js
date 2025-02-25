@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST="{\"src/components/LandingSearchBar/LandingSearchBar.tsx -> @/src/components/CustomSelect/CustomSelect\":{\"id\":\"src/components/LandingSearchBar/LandingSearchBar.tsx -> @/src/components/CustomSelect/CustomSelect\",\"files\":[\"static/css/_app-pages-browser_src_components_CustomSelect_CustomSelect_tsx.css\",\"static/chunks/_app-pages-browser_src_components_CustomSelect_CustomSelect_tsx.js\"]}}"
