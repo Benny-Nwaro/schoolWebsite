@@ -23,7 +23,7 @@ const BookingCard: React.FC<BookingCardProps> = ({
   // };
 
   return (
-    <div className="mx-auto w-2/6 bg-white rounded-3xl shadow-lg p-5 text-center absolute left-1/2 top-80 b -translate-x-1/2  mb-2 text-sm text-white z-50 ">
+    <div className="mx-auto w-2/6 bg-white rounded-3xl shadow-lg p-5 text-center absolute left-1/2 top-80 b -translate-x-1/2  mb-2 text-sm text-white z-50 max-md:w-5/6 ">
       <div className="text-gray-700 mb-2">
         <div className="flex flex-row space-x-5">
             <span className="block font-semibold text-lg ">Date:</span>

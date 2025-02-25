@@ -2383,6 +2383,18 @@ body {
     width: fit-content;
   }
 
+  .max-md\:w-3\/6 {
+    width: 50%;
+  }
+
+  .max-md\:w-5\/6 {
+    width: 83.333333%;
+  }
+
+  .max-md\:w-4\/6 {
+    width: 66.666667%;
+  }
+
   .max-md\:flex-col {
     flex-direction: column;
   }

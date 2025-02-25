@@ -36,7 +36,7 @@ const PaymentTypes = () => {
             selected={selectedOption === el.text}
             setSelectedOption={setSelectedOption}
             selectedOption={selectedOption}
-            balance = {el.balance?? "0"}
+            balance = {el.balance?? ""}
           />
         ))}
      

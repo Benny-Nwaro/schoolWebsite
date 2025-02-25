@@ -33,10 +33,11 @@
       "static/css/app/tutors/[id]/page.css",
       "static/chunks/app/tutors/[id]/page.js"
     ],
-    "/_not-found/page": [
+    "/checkout/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/css/app/checkout/page.css",
+      "static/chunks/app/checkout/page.js"
     ]
   }
 }
