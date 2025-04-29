@@ -1,0 +1,81 @@
+.teacher_how_it_works {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 20px;
+  padding-top: 0;
+  background-color: #fff;
+  background-image: url("../../assets/images/bg_lines2.png");
+  background-repeat: no-repeat;
+  background-size: 1700px;
+  h1 {
+    margin: 0;
+    padding: 0 0 40px;
+    padding-top: 100px;
+  }
+  .image_rows {
+    display: flex;
+    flex-direction: column;
+    .image_row {
+      display: flex;
+      gap: 65px;
+      .image_row_text {
+        max-width: 230px !important;
+      }
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+      &:nth-child(2) {
+        .image_row_text {
+          padding-top: 30px;
+        }
+
+        img {
+          margin-top: -60px;
+          margin-left: 120px;
+        }
+      }
+      &:nth-child(3) {
+        // margin-top: -250px;
+        img {
+          margin-top: -70px;
+          // margin-left: 100px;
+        }
+        .image_row_text {
+          padding-top: 60px;
+        }
+      }
+      .image_row_text {
+        max-width: 215px;
+        text-align: center;
+      }
+    }
+  }
+}
+@media screen and (max-width: 760px) {
+  .teacher_how_it_works {
+    .image_rows {
+      .image_row {
+        flex-direction: column !important;
+        gap: 15px;
+        align-items: center;
+        .image_row_text {
+          max-width: 100% !important;
+        }
+        .image {
+          width: 100%;
+          // height: 430px;
+          max-width: 400px;
+          border-radius: 8px;
+          img {
+            margin: 0;
+            border-radius: 8px;
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}

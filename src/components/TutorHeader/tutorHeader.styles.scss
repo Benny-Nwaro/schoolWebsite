@@ -1,0 +1,75 @@
+.tutor_header {
+  padding: 100px 160px;
+  padding-bottom: 86px;
+  background-color: var(--primary-color);
+  background-image: url("../../../src/assets/images/tutrobg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  h1 {
+    color: #fff;
+    font-size: 48px;
+    line-height: 57.6px;
+    letter-spacing: -2px;
+    font-weight: 700;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin: 0;
+    .verified {
+      font-size: 14px;
+      padding: 8px 12px;
+      background-color: transparent;
+      border: solid #fff 1px;
+      border-radius: 50px;
+      display: flex;
+      gap: 8px;
+      height: 32px;
+      line-height: normal;
+      align-items: center;
+      font-weight: 500;
+      letter-spacing: -0.4px;
+    }
+  }
+
+  .header_text {
+    margin: 0;
+    color: #fff;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: -0.4px;
+    font-weight: 500;
+    max-width: 740px;
+
+    margin-top: 28px;
+  }
+  .selected_lesson {
+    margin-top: 18px;
+    span {
+      background-color: #fff;
+      padding: 8.5px 20px;
+      color: var(--text-color);
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 21px;
+      letter-spacing: 2%;
+      border-radius: 50px;
+    }
+  }
+  .header_text_container {
+    padding-right: 250px;
+    p {
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+@media screen and (max-width: 975px) {
+  .tutor_header {
+    display: none;
+  }
+}

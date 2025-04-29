@@ -1,0 +1,210 @@
+.similar_tutor_card {
+  // width: 255px;
+  // min-width: 255px;
+  height: 510px;
+  min-height: 506px;
+  max-width: 255px;
+  overflow: hidden;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  //   background-color: #fff;
+  //   box-shadow: 0px 0px 100px 0px #4e4d9026;
+  border-radius: 24px;
+  cursor: pointer;
+  .tutor_experience {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: space-between;
+    span {
+      padding: 12px 18px;
+      color: var(--text-color);
+      font-size: 15px;
+      white-space: nowrap;
+      font-weight: 700;
+      line-height: 19.5px;
+      letter-spacing: 0.02em;
+      border: solid var(--black-color) 1px;
+      border-radius: 50px;
+    }
+    img {
+      width: 40px !important;
+      height: 40px !important;
+    }
+  }
+  .tutor_card_image {
+    max-width: 100%;
+    position: relative;
+    border-radius: 16px;
+    max-height: 277px;
+    height: 100%;
+    box-shadow: 5px 10px 10px 0px #80808012;
+
+    .free_trial {
+      background-color: #fff;
+      color: var(--black-color);
+      font-size: 14px;
+      font-weight: 500;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-radius: 0px 16px 0px 14px;
+      padding: 12px;
+      line-height: 14.4px;
+      letter-spacing: 2%;
+    }
+    img {
+      border-radius: 16px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .personal_info_row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 0;
+    margin-bottom: 12px;
+    border-bottom: solid 1px #f1f1f9;
+    .is_verified {
+      display: flex;
+      align-items: center;
+    }
+    .name_container {
+      max-width: 140px;
+      .name {
+        color: var(--black-color);
+        font-weight: 700;
+        font-size: 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    .hourly_rate {
+      margin-left: auto;
+      span {
+        white-space: nowrap;
+      }
+      color: var(--black-color);
+      font-weight: 700;
+      font-size: 18px;
+      padding: 8px 12px;
+      border-radius: 50px;
+      border: solid #f1f1f9 1px;
+      line-height: 21.6px;
+      letter-spacing: 2%;
+    }
+  }
+  .personal_info_container {
+    padding: 0 8px;
+  }
+
+  .tutor_other_info_container {
+    padding-bottom: 10px;
+    border-bottom: solid 1px #f1f1f9;
+    .tutor_col {
+      display: flex;
+      gap: 4px;
+    }
+    .tutor_other_info {
+      display: flex;
+      //   gap: 8px;
+      //   align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      img {
+        width: 14px;
+        height: 14px;
+      }
+      .lesson_name {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        span {
+          color: var(--black-color);
+          font-weight: 700;
+          font-size: 12px;
+          line-height: 14.4px;
+        }
+      }
+      .rating {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        // margin-left: 5px;
+        span {
+          color: var(--text-color);
+          font-weight: 500;
+          font-size: 14px;
+          letter-spacing: 2%;
+          line-height: 21px;
+        }
+      }
+      .nb_review {
+        color: var(--grey-color);
+        font-weight: 500;
+        letter-spacing: 2%;
+        line-height: 21px;
+        font-size: 12px;
+      }
+    }
+    .lesson_location {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      img {
+        width: 14px;
+        height: 14px;
+      }
+      span {
+        color: var(--black-color);
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 14.4px;
+      }
+    }
+    .similar_tutor_text {
+      padding: 12px 0;
+      p {
+        margin: 0;
+        color: var(--black-color);
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 16.9px;
+        letter-spacing: 0.02em;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
+.similar_card_with_hover {
+  // border: solid transparent 2px;
+  max-width: 100%;
+  width: 260px;
+  padding: 8px;
+  height: 505px;
+  position: relative;
+  // min-height: auto;
+  .tutor_card_image {
+    max-height: 250px;
+  }
+  .personal_info_container {
+    padding: 0;
+  }
+  &:hover {
+    .tutor_card_image {
+      box-shadow: 0px 0px 0px 3px #3198f5;
+    }
+    box-shadow: 0px 0px 0px 3px #3198f5;
+  }
+}

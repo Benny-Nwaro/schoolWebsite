@@ -1,0 +1,65 @@
+.country_dropdown {
+  position: relative;
+}
+
+.country_dropdown_menu {
+  width: 220px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  .drop_item {
+    display: flex;
+    flex-direction: column;
+    span {
+      padding-bottom: 0;
+      font-size: 12px;
+      font-weight: 600;
+      padding-bottom: 4px;
+      color: var(--black-color);
+      cursor: default;
+      &:hover {
+        color: var(--black-color);
+      }
+    }
+
+    select {
+      border: solid rgba(0, 0, 0, 0.1) 1px;
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 8px;
+      //   margin-right: -20px;
+      //   padding-right: 10px;
+      appearance: none; /* Remove default styling */
+      -webkit-appearance: none; /* For Safari */
+      -moz-appearance: none; /* For Firefox */
+      background: url("./Vector.png") no-repeat 160px center;
+
+      background-repeat: no-repeat;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--black-color);
+
+      &::-ms-expand {
+        display: none; /* Hide default arrow in IE */
+      }
+    }
+  }
+}
+
+.google_translate_element_wrapper {
+  // display: none;
+  div:first-child {
+    direction: ltr !important;
+    display: flex;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    select {
+      width: 100% !important;
+    }
+    span {
+      display: none;
+    }
+  }
+}
