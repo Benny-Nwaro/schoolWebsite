@@ -1,0 +1,33 @@
+.what_students_say {
+  padding: 100px 0;
+  background-image: url("../../assets/images/student_say_bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-color: rgba(#171717, 0.98);
+  h1 {
+    color: var(--grey-color);
+    line-height: 48px;
+    font-size: 40px;
+    letter-spacing: -2px;
+    text-align: center;
+    margin: 0;
+  }
+  h3 {
+    color: #fff;
+    line-height: 24px;
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: -0.2px;
+    margin-bottom: 60px;
+  }
+  .review_cards_container {
+    overflow: hidden;
+  }
+  .review_cards {
+    display: flex;
+    margin: 20px 0;
+    gap: 20px 32px;
+    justify-content: center;
+  }
+}

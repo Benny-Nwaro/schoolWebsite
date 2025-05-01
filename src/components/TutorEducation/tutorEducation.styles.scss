@@ -1,0 +1,39 @@
+.tutor_education {
+  .tutor_education_row {
+    margin-top: 8px;
+    svg {
+      min-width: 8px;
+      height: 8px;
+    }
+    .duration {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: 2%;
+      max-width: 361px;
+    }
+    .university {
+      font-weight: 700;
+      margin-left: 10px;
+      font-size: 16px;
+    }
+    .certification {
+      font-size: 16px;
+      font-weight: 500;
+      margin-left: 10px;
+      line-height: 24px;
+      letter-spacing: 2%;
+    }
+  }
+  &.work_experience {
+    .tutor_education_row {
+      &:not(:last-child) {
+        padding-bottom: 8px;
+        border-bottom: solid #dbdcf0 1px;
+      }
+    }
+  }
+}

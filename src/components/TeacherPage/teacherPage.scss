@@ -1,0 +1,177 @@
+.teacher_landing {
+  padding: 95px 90px;
+  background-color: var(--off-blue);
+  .teacher_landing_inner {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .teacher_landing_welcome {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+
+    h1 {
+      text-transform: capitalize;
+      max-width: 660px;
+    }
+
+    p {
+      line-height: 36px;
+      letter-spacing: -0.3px;
+      font-size: 24px;
+    }
+
+    .landing_reviews {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      margin-top: 32px;
+      .review_col {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: #171717;
+        line-height: 26px;
+        font-weight: 500;
+      }
+    }
+
+    .landing_images {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      p {
+        margin: 0;
+        text-align: center;
+        padding-top: 10px;
+        font-weight: 700;
+      }
+      img {
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .landing_images_sm {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .teacher_landing {
+    padding: 44px 24px;
+  }
+}
+@media screen and (max-width: 975px) {
+  .teacher_landing {
+    padding: 44px 24px;
+    .wallpaper {
+      display: none;
+    }
+    .teacher_info_section {
+      padding: 50px 24px;
+    }
+    .teacher_landing_inner {
+      .landing_images {
+        display: none;
+      }
+      padding: 0;
+      .landing_bg_container {
+        h1 {
+          font-size: 48px;
+        }
+        .search_bar_container {
+          margin: 0 auto;
+          margin-top: 32px;
+          gap: 5px;
+        }
+        .landing_reviews {
+          flex-direction: row !important;
+          justify-content: center;
+        }
+        .landing_images_sm {
+          display: block;
+          max-width: 100%;
+          width: 100%;
+          img {
+            max-width: 100%;
+            width: 100%;
+          }
+        }
+
+        .teacher_landing_welcome {
+          flex-direction: column;
+          gap: 10px;
+          .column {
+            width: 100%;
+          }
+          .landing_reviews {
+            font-size: 12px;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .teacher_landing {
+    .teacher_landing_inner {
+      .landing_bg_container {
+        .search_bar_container {
+          padding-left: 12px;
+          gap: 5px;
+          .custom_select_container:nth-child(2) {
+            .select_icon {
+              display: none;
+            }
+          }
+          button {
+            padding: 12px 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .teacher_landing {
+    .teacher_landing_inner {
+      .landing_bg_container {
+        h1 {
+          font-size: 36px;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 410px) {
+  .teacher_landing {
+    .teacher_landing_inner {
+      .landing_bg_container {
+        .teacher_landing_welcome {
+          .column {
+            .search_bar_container {
+              gap: 0;
+              img {
+                display: none;
+              }
+            }
+          }
+        }
+        .landing_reviews {
+          flex-direction: column !important;
+          align-items: center !important;
+          justify-content: center !important;
+        }
+      }
+    }
+  }
+}

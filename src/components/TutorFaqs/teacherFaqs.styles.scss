@@ -1,0 +1,32 @@
+.fq_section {
+  h1 {
+    color: var(--black-color);
+  }
+  .teacher_faqs {
+    .faq-item {
+      box-shadow: none;
+      border: solid #dbdcf0 1px;
+      h2 {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 21px;
+        letter-spacing: -0.2px;
+        color: var(--black-color);
+
+        svg {
+          width: 12px;
+          height: 12px;
+        }
+      }
+      .faq-answer {
+        p {
+          color: var(--text-color);
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 21px;
+          letter-spacing: -0.2px;
+        }
+      }
+    }
+  }
+}

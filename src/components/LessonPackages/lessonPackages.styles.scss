@@ -1,0 +1,340 @@
+// body:has(.packages_modal) {
+//   .tutor_page {
+//     overflow-y: hidden !important;
+//   }
+// }
+.packages_modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  z-index: 99999999999;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 20px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 100vh;
+  overflow: auto;
+  .lesson_packages_container {
+    // position: absolute;
+    background-color: #fefefe;
+    // align-self: flex-start;
+    top: 100px;
+    padding: 32px;
+    width: calc(100% - 64px);
+    border-radius: 12px;
+    max-width: 1280px;
+    @media screen and (max-width: 1150px) {
+      overflow-x: hidden;
+    }
+    .header {
+      position: relative;
+      .close {
+        position: absolute;
+        right: -15px;
+        top: -15px;
+        cursor: pointer;
+        color: black !important;
+        font-size: 30px;
+      }
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      gap: 20px;
+      h1 {
+        color: var(--black-color);
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 48px;
+        letter-spacing: -0.3px;
+        margin: 0;
+      }
+      p {
+        margin: 0;
+        color: var(--text-color);
+        font-size: 14px;
+        font-style: italic;
+        font-weight: 400;
+        line-height: 18.2px;
+      }
+      select {
+        border: solid var(--primary-color) 1px;
+        margin-top: 5px;
+        border-radius: 8px;
+        padding: 12px 6px;
+        background-color: var(--off-blue);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16.8px;
+        letter-spacing: 0.02em;
+        color: var(--black-color);
+      }
+      .col:first-child {
+        p {
+          font-weight: 500;
+          font-style: normal;
+        }
+      }
+      .col.text {
+        max-width: 40%;
+        p {
+          max-width: 570px;
+        }
+      }
+    }
+    .packages {
+      display: flex;
+      gap: 30px;
+      margin-top: 150px;
+
+      .packages_slider {
+        margin-top: -110px;
+        // display: block;
+        width: 100%;
+        max-width: calc(100% - 290px);
+
+        @media screen and (max-width: 1150px) {
+          min-width: 1000px;
+          overflow-x: hidden;
+        }
+      }
+      .package_col {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        .package_row {
+          padding: 24px;
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          svg {
+            font-size: 24px;
+          }
+          span {
+            color: var(--black-color);
+
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 19.2px;
+            letter-spacing: 0.02em;
+            min-width: 200px;
+          }
+        }
+      }
+      .prices_col {
+        padding: 24px 44px;
+        max-width: 100%;
+        .times {
+          h1 {
+            margin: 0;
+            white-space: nowrap;
+            font-size: 36px;
+            font-weight: 500;
+            line-height: 43.2px;
+            text-align: center;
+            letter-spacing: -2px;
+            color: var(--black-color);
+          }
+        }
+        .lesson_package {
+          text-align: center;
+          .arrow {
+            padding: 12px 0;
+            svg {
+              font-size: 26px;
+            }
+          }
+          .prices {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-right: 10px;
+            .price {
+              padding: 24px 24px;
+              width: 100%;
+              white-space: nowrap;
+              box-shadow: 0px 0px 40px 0px #4d5c9040;
+              border: solid #dbdcf0 1px;
+              background-color: #fff;
+              color: var(--black-color);
+              border-radius: 50px;
+              cursor: pointer;
+              &.selected {
+                background-color: var(--primary-color);
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+    .packages_button {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .btn_col {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        span {
+          font-style: italic;
+          color: var(--text-color);
+          font-size: 14px;
+          font-style: italic;
+          font-weight: 400;
+          line-height: 18.2px;
+        }
+      }
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+        letter-spacing: 0.02em;
+
+        svg {
+          font-size: 20px;
+          font-size: 16px;
+          font-weight: 700;
+          line-height: 24px;
+          letter-spacing: 0.02em;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .packages_modal {
+    .lesson_packages_container {
+      max-height: calc(100vh - 50px);
+      // .packages_button {
+      // }
+      .header {
+        flex-direction: column;
+
+        .col:first-child {
+          order: 1;
+        }
+        .col.text {
+          order: 3;
+        }
+        .col:nth-child(1) {
+          order: 2;
+          display: flex;
+        }
+        .col {
+          width: 100%;
+          align-items: center;
+          max-width: 350px;
+
+          display: flex;
+          flex-direction: column;
+          &.text {
+            max-width: 500px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 680px) {
+  .packages_modal {
+    .lesson_packages_container {
+      .packages {
+        gap: 5px;
+        .package_col {
+          .package_row {
+            padding-right: 0;
+            padding-left: 0;
+            span {
+              font-size: 14px;
+              min-width: auto;
+              max-width: 100%;
+              width: 180px;
+            }
+          }
+        }
+        .packages_slider {
+          min-width: 500px;
+          .prices_col {
+            max-width: 250px;
+            padding: 24px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 525px) {
+  .packages_modal {
+    .lesson_packages_container {
+      padding: 32px 12px;
+      .header {
+        .close {
+          right: 0px;
+          top: 0px;
+        }
+      }
+      .packages {
+        .package_col {
+          .package_row {
+            span {
+              // min-width: auto;
+              width: 100px;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+      .packages {
+        .packages_slider {
+          min-width: auto !important;
+          max-width: 100%;
+          width: 100%;
+
+          .prices_col {
+            .price {
+              box-shadow: 0px 0px 20px 0px #4d5c9040 !important;
+            }
+            .times {
+              h1 {
+                font-size: 18px;
+              }
+            }
+            max-width: 200px;
+            padding: 24px 0;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 430px) {
+  .packages_modal {
+    padding: 30px 15px;
+    .lesson_packages_container {
+      width: calc(100% - 30px);
+      // .packages {
+      //   .package_col {
+      //     .package_row {
+      //       span {
+      //         min-width: auto;
+      //         width: auto;
+      //         font-size: 12px;
+      //       }
+      //     }
+      //   }
+      // }
+      .lesson_package {
+        padding: 0 20px;
+      }
+    }
+  }
+}

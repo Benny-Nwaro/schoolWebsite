@@ -1,0 +1,113 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.title {
+    color: #171717;
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #414158;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 16px;
+    gap: 16px;
+
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
+}
+
+.boxContainer {
+    width: 100%;
+    padding: 16px;
+
+    @media (min-width: 768px) {
+        width: 50%;
+    }
+}
+
+.titleContainer {
+    background-color: white;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.calendarContainer {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+}
+
+.timeGrid {
+    width: 100%;
+        max-width: 500px; // Match titleContainer width
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 4px;
+    
+        @media (min-width: 768px) {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+    }
+}
+
+.timeButton {
+    min-width: 100px;
+    text-align: center;
+    background-color: #dbdcf0;
+    padding: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background-color: #1310db;
+}
+}
+
+.timeButtonSelected {
+    background-color: #1310db;
+    color: white;
+}
+
+.buttonContainer {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.confirmButton {
+    background-color: #3d8bff;
+    color: #fff;
+    border-radius: 24px;
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    transition: background 0.3s ease;
+
+    &:hover {
+        background-color: #3b7ce7;
+    }
+}
+
