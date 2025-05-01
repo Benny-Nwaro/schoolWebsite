@@ -6,7 +6,6 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 // Removed unused bgImage import as a hardcoded URL is used below
 
 
-
 const SecureFuture: React.FC = () => { // Define component type
   return (
     <Container maxWidth="xl" sx={{
