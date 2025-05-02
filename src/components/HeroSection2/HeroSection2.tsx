@@ -1,6 +1,7 @@
 import React from "react";
 import HeroImage1 from "@/src/assets/images/Hero2Image.jpeg";
 import HeroImage2 from "@/src/assets/images/Hero2image2.png";
+import Link from "next/link";
 
 
 const HeroSection2: React.FC = () => {
@@ -31,9 +32,11 @@ const HeroSection2: React.FC = () => {
           </span>
         </h1>
         <div className="mt-8">
+        <Link href="/freetrial" passHref>
           <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:opacity-90 transition-opacity">
             Book a free trial
           </button>
+          </Link> 
         </div>
       </div>
       {/* Decorative lines */}

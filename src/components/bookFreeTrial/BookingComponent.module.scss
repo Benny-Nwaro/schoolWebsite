@@ -1,6 +1,7 @@
 .container {
     max-width: 1000px;
     margin: 0 auto;
+    margin-top: 100px; // Adjust this value to match your header's height
 }
 
 .title {
@@ -97,6 +98,7 @@
 .confirmButton {
     background-color: #3d8bff;
     color: #fff;
+    margin-bottom: 80px;
     border-radius: 24px;
     padding: 10px 24px;
     font-size: 16px;
@@ -110,4 +112,3 @@
         background-color: #3b7ce7;
     }
 }
-

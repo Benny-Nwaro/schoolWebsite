@@ -105,7 +105,7 @@ const BookingFormContent: React.FC<BookingFormContentProps> = ({ collectedData }
   const [gender, setGender] = useState<string>(''); // Consider specific types like 'Male' | 'Female' | 'Other' if applicable
   const [nationality, setNationality] = useState<string>('');
   const [userId] = useState<string>(uuidv4()); // userId is constant after generation
-  const [paymentMethod] = useState<string>("Free"); // paymentMethod is constant
+  //const [paymentMethod] = useState<string>("Free"); // paymentMethod is constant
 
   useEffect(() => {
     if (collectedData) {
@@ -244,46 +244,35 @@ const BookingFormContent: React.FC<BookingFormContentProps> = ({ collectedData }
       return;
     }
 
-    try {
-      const response = await axios.post(
-        "https://testbackend.educify.org/api/api/v1/students/signup",
-        {
-          paymentMethod: paymentMethod,
-          user: {
-            userId: userId, // Add userId here inside the user object
-            email: email,
-            role: role,
-            subjectArea: subjectArea,
-            schoolLevel: schoolLevel,
-            reasons: reasons,
-            scheduleTime: new Date().toISOString(), // You might need to adjust this
-            locationPreference: collectedData?.location || "", // You might want to add this field later
-            lastName: lastName,
-            firstName: firstName,
-            password: password,
-            limited: "", // You might want to add this field later
-            address: address,
-            phone: phoneNumber,
-            profileImage: {}, // You might want to add this field later
-            gender: gender,
-            nationality: nationality,
-          },
-        }
-      );
+    // 1. Combine data from the modal (collectedData) and this form's state
+    const finalSignupData = {
+      // Data from previous steps (passed via props)
+      subjectArea: collectedData?.subject || '',
+      schoolLevel: collectedData?.schoolLevel || '',
+      reasons: collectedData?.goal || '',
+      locationPreference: collectedData?.location || '',
+      address: collectedData?.address || '', // Use address from collectedData if available
+      // Data from this form
+      userId: userId,
+      email: email,
+      role: 'STUDENT', // Role is always STUDENT for this endpoint
+      lastName: lastName,
+      firstName: firstName,
+      password: password,
+      phone: phoneNumber,
+      paymentMethod: 'WALLET', // Hardcoded as per previous requirement
+      // Optional fields - set defaults or leave empty if not collected yet
+      gender: gender || '',
+      nationality: nationality || '',
+      // profileImage: {}, // Add if you collect profile image data
+      // limited: "", // Add if needed
+    };
 
-      console.log("Signup Response:", response.data);
+    // 2. Store the combined data in sessionStorage to pass to the next step
+    sessionStorage.setItem('pendingSignupData', JSON.stringify(finalSignupData));
 
-      if (response.data) {
-        alert("Signup successful!");
-        router.push('/bookclass'); // Use router.push for navigation
-      } else {
-        alert(response.data.message || "Signup failed. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error during signup:", (error as any).response?.data || (error as any).message);
-      const errorMessage = (error as any)?.response?.data?.message || "Signup failed. Please try again.";
-      alert(errorMessage);
-    }
+    // 3. Navigate to the scheduling page
+    router.push('/schedule-class'); // Adjust this route if needed
   };
 
   const handleClickShowPassword = (): void => setShowPassword((show) => !show);

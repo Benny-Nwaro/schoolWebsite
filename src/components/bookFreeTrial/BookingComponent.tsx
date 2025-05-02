@@ -1,10 +1,12 @@
 'use client'; // Mark as a Client Component because it uses hooks (useState)
 
 import styles from './BookingComponent.module.scss'
-import React, { useState } from 'react' // Import React
+import React, { useState, useEffect } from 'react' // Import React and useEffect
 import Calendar from 'react-calendar'
 import moment, { Moment } from 'moment' // Import Moment type
 import 'react-calendar/dist/Calendar.css'
+import axios from 'axios'; // Import axios
+import { useRouter } from 'next/navigation'; // Import useRouter
 import ConfirmationModal from './ConfirmationModal'
 import LayerI from '@/src/assets/images/Layer1.png'
 import { IoCalendarNumberOutline } from 'react-icons/io5'
@@ -12,17 +14,26 @@ import { TfiTimer } from 'react-icons/tfi'
 
 // Define the props interface
 interface BookingComponentProps {
-  // Define types for any props your component might receive
-  // Example: If these props were actually used:
-  // selectedData?: any; // Replace 'any' with a more specific type if known
-  // onOpenConfirmation?: () => void;
+  // No props needed for this version as data comes from sessionStorage
+}
+
+// Define the structure of the data expected from sessionStorage
+interface SignupData {
+  userId: string;
+  email: string;
+  role: string;
+  paymentMethod?: string; // Add paymentMethod as an optional field
+  // Add all other fields that were stored in BookingFormContent
+  [key: string]: any; // Allow other properties
 }
 
 const BookingComponent: React.FC<BookingComponentProps> = ({ /* Destructure props here if needed */ }) => {
   // Type the state variables
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [selectedTime, setSelectedTime] = useState<Moment | null>(null);
-  const [open, setOpen] = useState<boolean>(false);
+  const [showConfirmationModal, setShowConfirmationModal] = useState<boolean>(false);
+  const [signupData, setSignupData] = useState<SignupData | null>(null);
+  const router = useRouter(); // Initialize router
 
   // Generate time slots
   // Add types for parameters and return value
@@ -42,22 +53,84 @@ const BookingComponent: React.FC<BookingComponentProps> = ({ /* Destructure prop
   const endTime = moment().endOf('day'); // End at 23:59:59.999
   const timeSlots: Moment[] = generateTimeSlots(startTime, endTime, 60); // Hourly slots
 
+  // Retrieve data from sessionStorage on component mount
+  useEffect(() => {
+    const storedData = sessionStorage.getItem('pendingSignupData');
+    if (storedData) {
+      setSignupData(JSON.parse(storedData));
+    } else {
+      // Handle case where data is missing (e.g., redirect back or show error)
+      console.error("Signup data not found in session storage.");
+      // Optionally redirect: router.push('/');
+    }
+  }, [router]); // Added router dependency
   // Type the date parameter for handleDateChange
-  const handleDateChange = (value: Date | Date[] | null) => {
-    // react-calendar returns Date | [Date, Date] | null
-    // Handle single date selection for this component
+  // Define the type for the value from react-calendar's onChange
+  type CalendarValue = Date | null | [Date | null, Date | null];
+
+  const handleDateChange = (value: CalendarValue, event: React.MouseEvent<HTMLButtonElement>) => {
+    // react-calendar returns Date | null | [Date | null, Date | null]
     if (value instanceof Date) {
       setSelectedDate(value);
-    }
-    setSelectedTime(null)
-  }
+    } else if (Array.isArray(value) && value[0] instanceof Date) {
+      // If it's a range, use the start date (assuming no range selection is intended)
+      setSelectedDate(value[0]);
+    } // If value is null or the first element of the array is null, do nothing or handle as needed
+    setSelectedTime(null); // Reset time selection when date changes
+    };
 
-  const handleConfirmBooking = () => {
-    setOpen(true)
+  const handleConfirmBooking = async () => {
+    if (!selectedTime || !signupData) {
+      alert("Please select a time slot and ensure signup data is available.");
+      return;
+    }
+
+    // Combine date and time for scheduleTime
+    const scheduleDateTime = moment(selectedDate)
+      .set({
+        hour: selectedTime.hour(),
+        minute: selectedTime.minute(),
+        second: 0,
+        millisecond: 0,
+      });
+
+    const finalPayload = {
+      paymentMethod: signupData.paymentMethod || 'WALLET', // Ensure paymentMethod is included
+      user: {
+        ...signupData, // Spread all the user details from storage
+        scheduleTime: scheduleDateTime.toISOString(), // Add the selected schedule time in ISO format
+        // Ensure fields expected by backend are present, remove duplicates if necessary
+        // e.g., remove paymentMethod from here if it's top-level
+      },
+    };
+    // Remove top-level keys from user object if they exist at the root
+    delete finalPayload.user.paymentMethod;
+
+    console.log("Final Signup Payload:", finalPayload);
+
+    try {
+      const response = await axios.post(
+        "https://testbackend.educify.org/api/api/v1/students/signup",
+        finalPayload
+      );
+
+      console.log("Signup Response:", response.data);
+
+      if (response.data) { // Assuming success if response.data is truthy
+        setShowConfirmationModal(true); // Show confirmation modal on success
+        sessionStorage.removeItem('pendingSignupData'); // Clear stored data
+      } else {
+        alert(response.data?.message || "Signup failed during final step. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error during final signup:", (error as any).response?.data || (error as any).message);
+      const errorMessage = (error as any)?.response?.data?.message || "Signup failed during final step. Please try again.";
+      alert(errorMessage);
+    }
   }
 
   const handleLoginClick = () => {
-    setOpen(false)
+    router.push('/login'); // Redirect to login page
   }
 
   return (
@@ -76,7 +149,7 @@ const BookingComponent: React.FC<BookingComponentProps> = ({ /* Destructure prop
               </p>
               <div className={styles.calendarContainer}>
                 <Calendar
-                  onChange={handleDateChange}
+                  onChange={(value, event) => handleDateChange(value, event)}
                   value={selectedDate}
                   minDate={new Date()} // Prevent selecting past dates
                 />
@@ -117,13 +190,13 @@ const BookingComponent: React.FC<BookingComponentProps> = ({ /* Destructure prop
       </div>
 
       <ConfirmationModal
-        open={open}
-        onClose={() => setOpen(false)}
+        open={showConfirmationModal}
+        onClose={() => setShowConfirmationModal(false)} // Allow closing the modal
         title='Your class has been successfully booked!'
         imageSrc={LayerI.src}
         details={{
-  Date: moment(selectedDate).format('LL'),
-  Time: selectedTime ? selectedTime.format('hh:mm A') : 'N/A',
+          Date: moment(selectedDate).format('LL'),
+          Time: selectedTime ? selectedTime.format('hh:mm A') : 'N/A',
         }}
         actionLinkText='Login'
         onActionLinkClick={handleLoginClick}

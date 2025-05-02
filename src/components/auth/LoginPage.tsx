@@ -254,7 +254,7 @@ const LoginPage: React.FC = () => {
           <p className='pr-2'>
           Don’t have an account yet?{' '}
           </p>
-          <a href="#" className="text-blue-500 hover:underline">
+          <a href="/freetrial" className="text-blue-500 hover:underline">
             Book a free Trial
           </a>
          </div>

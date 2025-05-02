@@ -6,6 +6,7 @@ import "./meetTutors.styles.scss";
 import TutorCard from "../TutorCard/TutorCard";
 import Button from "../Button/Button";
 import { Tutor } from "@/src/types/types";
+import Link from "next/link";
 interface MeetTutorsProps {
   tutors: { teacher: Tutor }[];
 }
@@ -32,9 +33,11 @@ const MeetTutors = ({ tutors }: MeetTutorsProps) => {
         </motion.div>
       </div>
       <div className="meet_tutor_button_container">
+      <Link href="/freetrial" passHref>
         <Button variant="dark" className="btn-lg">
           Book a free trial
         </Button>
+        </Link> 
       </div>
     </div>
   );

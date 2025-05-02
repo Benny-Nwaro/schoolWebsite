@@ -7,6 +7,7 @@ import avar1 from "@/src/assets/images/avar1.jpeg";
 import avar2 from "@/src/assets/images/avar2.jpeg";
 import avar3 from "@/src/assets/images/avar3.jpeg";
 import avar4 from "@/src/assets/images/avar4.jpeg";
+import Link from "next/link";
 
 const HeroSection: React.FC = () => {
   return (
@@ -22,9 +23,11 @@ const HeroSection: React.FC = () => {
             step of your academic journey.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4">
+          <Link href="/freetrial" passHref> 
             <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium">
               Book a Free Trial
             </button>
+            </Link>
             <button className="bg-gray-800 hover:bg-gray-700 text-blue-700 px-6 py-3 border-2 border-blue-700 rounded-lg font-medium">
               Explore Tutors
             </button>

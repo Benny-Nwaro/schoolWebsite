@@ -5,6 +5,7 @@ import verified from "@/src/assets/svg/verified.svg";
 import star from "@/src/assets/svg/gold-start.svg";
 import Image from "next/image";
 import Button from "../Button/Button";
+import Link from "next/link";
 
 import location from "@/src/assets/svg/location.svg";
 import bag from "@/src/assets/svg/bag.svg";
@@ -68,7 +69,9 @@ const TutorSearchCard = ({ showPreview, index, setShowPreview }: any) => {
               </div>
               <div className="button">
                 <Button variant="primary_inverted">Ask a Question</Button>
+                <Link href="/freetrial" passHref>
                 <Button variant="primary">Book a Free Trial</Button>
+                </Link>
               </div>
             </div>
           </div>

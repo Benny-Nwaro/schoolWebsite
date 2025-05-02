@@ -1,6 +1,6 @@
 import React from "react";
 import Learning from "@/src/assets/images/Learning.png";
-
+import Link from "next/link";
 
 const HowEducifyWorks: React.FC = () => {
   const steps = [
@@ -68,9 +68,11 @@ const HowEducifyWorks: React.FC = () => {
 
       {/* CTA Section */}
       <div className="text-center mt-12">
+      <Link href="/freetrial" passHref>
         <button className="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:opacity-90 transition duration-300">
           Book a free trial
         </button>
+        </Link>  
       </div>
     </div>
   );
