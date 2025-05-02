@@ -14,6 +14,8 @@ const RecordingModal: React.FC<RecordingModalProps> = ({ onStopRecording, onClos
   const [recordedChunks, setRecordedChunks] = useState<Blob[]>([]);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [isStopping, setIsStopping] = useState<boolean>(false); // optional loading state
+  const [isRecording, setIsRecording] = useState<boolean>(false);
+
 
   useEffect(() => {
     startCamera();
@@ -31,6 +33,8 @@ const RecordingModal: React.FC<RecordingModalProps> = ({ onStopRecording, onClos
         videoRef.current.srcObject = stream;
       }
       setMediaStream(stream);
+      setIsRecording(true);
+
 
       const options = { mimeType: 'video/webm' };
       const recorder = new MediaRecorder(stream, options);
@@ -42,10 +46,13 @@ const RecordingModal: React.FC<RecordingModalProps> = ({ onStopRecording, onClos
       };
 
       recorder.onstop = () => {
+        setIsStopping(false)
+        setIsRecording(false)
         const completeBlob = new Blob(recordedChunks, { type: 'video/webm' });
-        const url = URL.createObjectURL(completeBlob);
-        setPreviewUrl(url);
-        setIsStopping(false); // stop loading
+        onStopRecording(completeBlob); // Pass the Blob to the parent
+        // const url = URL.createObjectURL(completeBlob);
+        // setPreviewUrl(url);
+        // setIsStopping(false); 
       };
 
       recorder.start();
@@ -86,67 +93,51 @@ const RecordingModal: React.FC<RecordingModalProps> = ({ onStopRecording, onClos
   };
 
   return (
-    <>
-      {/* If we are previewing, show the VideoPreviewModal */}
-      {previewUrl ? (
-        <VideoPreviewModal
-          videoUrl={previewUrl}
-          onClose={handleClose}
-          onPrimaryAction={handleSubmitVideo}
-          onSecondaryAction={handleRecordAgain}
-          primaryButtonText="Save Recording"
-          secondaryButtonText="Record Again"
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    <div className="bg-gray-100 rounded-xl shadow-lg overflow-hidden relative w-full max-w-5xl p-8">
+      {/* Close Button */}
+      <button
+        onClick={handleClose}
+        className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+      >
+        <XMarkIcon className="h-6 w-6" />
+      </button>
+
+      {/* Camera video */}
+      <div className="relative aspect-video bg-black rounded-xl overflow-hidden">
+        <video
+          ref={videoRef}
+          className="absolute w-full h-full object-cover"
+          autoPlay
+          muted
         />
-      ) : (
-        // If recording, show the camera view
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-gray-100 rounded-xl shadow-lg overflow-hidden relative w-full max-w-5xl p-8">
-            {/* Close Button */}
-            <button
-              onClick={handleClose}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
-            >
-              <XMarkIcon className="h-6 w-6" />
-            </button>
 
-            {/* Camera video */}
-            <div className="relative aspect-video bg-black rounded-xl overflow-hidden">
-              <video
-                ref={videoRef}
-                className="absolute w-full h-full object-cover"
-                autoPlay
-                muted
-              />
+        {isRecording && (
+          <div className="absolute top-4 left-4 bg-red-600 rounded-full w-4 h-4 animate-pulse" />
+        )}
 
-              {/* Red recording dot */}
-              <div className="absolute top-4 left-4 bg-red-600 rounded-full w-4 h-4 animate-pulse" />
-
-              {/* Stop Recording button - bottom center */}
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                <button
-                  onClick={handleStopRecording}
-                  className="bg-red-500 hover:bg-red-700 w-12 h-12 text-white font-semibold py-3 px-2 rounded-full focus:outline-none focus:shadow-outline disabled:bg-gray-400"
-                  disabled={isStopping} // disable button while stopping
-                >
-                  {isStopping ? (
-                    <div className="h-6 w-6 animate-spin border-2 border-white border-t-transparent rounded-full"></div>
-                  ) : (
-                    <VideoCameraIcon className="h-6 w-6 text-white" />
-                  )}
-                </button>
-              </div>
-            </div>
-
-            {/* Optional message */}
-            {isStopping && (
-              <div className="text-center mt-4 text-gray-600 font-medium">
-                Finalizing recording...
-              </div>
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+          <button
+            onClick={handleStopRecording}
+            className="bg-red-500 hover:bg-red-700 w-12 h-12 text-white font-semibold py-3 px-2 rounded-full focus:outline-none focus:shadow-outline disabled:bg-gray-400"
+            disabled={isStopping}
+          >
+            {isStopping ? (
+              <div className="h-6 w-6 animate-spin border-2 border-white border-t-transparent rounded-full"></div>
+            ) : (
+              <VideoCameraIcon className="h-6 w-6 text-white" />
             )}
-          </div>
+          </button>
+        </div>
+      </div>
+
+      {isStopping && (
+        <div className="text-center mt-4 text-gray-600 font-medium">
+          Finalizing recording...
         </div>
       )}
-    </>
+    </div>
+  </div>
   );
 };
 

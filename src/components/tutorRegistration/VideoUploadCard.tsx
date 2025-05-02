@@ -1,42 +1,39 @@
 import React, { useState } from 'react';
  import { PlayIcon } from '@heroicons/react/20/solid';
  import { CameraIcon } from '@heroicons/react/24/outline';
- import VideoUploaderModal from './VideoUploaderModal'; // Ensure the Modal version is imported
- import VideoPreviewCard from './VideoPreviewCard';
- import RecordingModal from './RecordingModal'; // Import the RecordingModal
+ import VideoUploaderModal from './VideoUploaderModal';
+ import RecordingModal from './RecordingModal';
+ import VideoPreviewModal from './VideoPreviewMoodal'; // Import the new modal
 
  interface VideoUploadProps {
   onUploadVideo: (file: File) => void;
   onUploadVideoLink: (link: string) => void;
   onProceed: () => void;
+  onSubmitRecordedVideo: (videoBlobUrl: string) => void; // Callback for recorded video
+  onPrimaryButtonClick: () => void; // New prop for the primary button action
  }
 
  const VideoUploadCard: React.FC<VideoUploadProps> = ({
   onUploadVideo,
   onUploadVideoLink,
   onProceed,
+  onSubmitRecordedVideo,
+  onPrimaryButtonClick
  }) => {
   const [selectedOption, setSelectedOption] = useState<'record' | 'upload' | 'link'>('record');
   const [videoLink, setVideoLink] = useState('');
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
   const [isRecordingModalOpen, setIsRecordingModalOpen] = useState(false);
-  const [selectedVideo, setSelectedVideo] = useState<File | null>(null); // To store the selected video
+  const [selectedVideo, setSelectedVideo] = useState<File | null>(null);
   const [videoUrl, setVideoUrl] = useState<string>('');
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
-
+  const [recordedVideoUrl, setRecordedVideoUrl] = useState<string>('');
 
   const handleOptionChange = (option: 'record' | 'upload' | 'link') => {
     setSelectedOption(option);
-    if (option === 'upload') {
-      setIsUploadModalOpen(true);
-      setIsRecordingModalOpen(false);
-    } else if (option === 'record') {
-      setIsRecordingModalOpen(true);
-      setIsUploadModalOpen(false);
-    } else {
-      setIsUploadModalOpen(false);
-      setIsRecordingModalOpen(false);
-    }
+    setIsUploadModalOpen(option === 'upload');
+    setIsRecordingModalOpen(option === 'record');
+    setIsPreviewOpen(false); // Close preview when option changes
   };
 
   const handleProceed = () => {
@@ -49,47 +46,55 @@ import React, { useState } from 'react';
         setIsPreviewOpen(true); // Consider if you want a preview for links
       }
     }
-    onProceed(); // Call proceed regardless
+    onProceed();
   };
 
   const closeUploadModal = () => setIsUploadModalOpen(false);
   const closeRecordingModal = () => setIsRecordingModalOpen(false);
   const closePreviewModal = () => setIsPreviewOpen(false);
 
-
-  // Function to handle the selected video from the uploader
   const handleVideoSelected = (file: File) => {
-    const url = URL.createObjectURL(file); // Generate a URL for the video
+    const url = URL.createObjectURL(file);
     setSelectedVideo(file);
-    setVideoUrl(url); // Pass the URL to the preview modal
-    setIsUploadModalOpen(false); // Close modal after selecting file
+    setVideoUrl(url);
+    setIsUploadModalOpen(false);
     setIsPreviewOpen(true);
   };
 
-  // Functions for handling actions in the preview modal
+  const handleStopRecording = (videoBlobUrl: string) => {
+    closeRecordingModal();
+    setRecordedVideoUrl(videoBlobUrl);
+    setVideoUrl(videoBlobUrl); // Set the preview URL to the recorded video
+    setIsPreviewOpen(true);
+  };
+
   const handleUploadAnother = () => {
-    setSelectedVideo(null); // Reset the selected video
-    setVideoUrl(''); // Clear the preview URL
+    setSelectedVideo(null);
+    setVideoUrl('');
+    setRecordedVideoUrl('');
     setIsPreviewOpen(false);
-    setIsUploadModalOpen(true);
+    if (selectedOption === 'upload') {
+      setIsUploadModalOpen(true);
+    } else if (selectedOption === 'record') {
+      setIsRecordingModalOpen(true);
+    }
   };
 
   const handleSubmitVideo = () => {
-    console.log('Video submitted:', selectedVideo);
+    console.log('Final video submitted:', selectedVideo || videoLink || recordedVideoUrl);
+    if (selectedOption === 'record' && recordedVideoUrl) {
+      onSubmitRecordedVideo(recordedVideoUrl);
+    }
     setIsPreviewOpen(false);
-    // Call a function prop to handle final submission in the parent
+    // You might want to trigger onProceed here as well, depending on your flow
   };
-
 
   return (
     <div className="bg-white rounded-3xl p-8 shadow-xl w-full max-w-5xl lg:px-48">
-
-      {/* Video Placeholder */}
       <div className="flex justify-center w-24 h-24 rounded-3xl mx-auto items-center bg-gray-500 aspect-video mb-12">
         <PlayIcon className="w-12 h-12 text-white" />
       </div>
 
-      {/* Instructions */}
       <div className="mb-6">
         <p className="text-sm text-gray-700 mb-2">
           A good video helps you communicate faster to potential students and their parents.
@@ -103,9 +108,7 @@ import React, { useState } from 'react';
         </ul>
       </div>
 
-      {/* Video Options */}
       <div className="space-y-4 mb-6">
-        {/* Record Option */}
         <div className="flex items-center">
           <input
             type="radio"
@@ -122,13 +125,11 @@ import React, { useState } from 'react';
             <RecordingModal onClose={closeRecordingModal} onStopRecording={() => {
               closeRecordingModal();
               setIsPreviewOpen(true);
-              // Potentially pass a dummy URL or handle the recorded video
-              setVideoUrl('recorded_video.mp4');
-            }} />
-          )}
+              setVideoUrl('recorded_video.mp4'); // Replace with actual recorded video URL
+              }} />          
+              )}
         </div>
 
-        {/* Upload Option */}
         <div className="flex items-center">
           <input
             type="radio"
@@ -146,7 +147,6 @@ import React, { useState } from 'react';
           )}
         </div>
 
-        {/* Upload Link Option */}
         <div className="flex items-start flex-col">
           <div className="flex items-center">
             <input
@@ -173,7 +173,6 @@ import React, { useState } from 'react';
         </div>
       </div>
 
-      {/* Action Button */}
       <div className="flex justify-center">
         <button
           onClick={handleProceed}
@@ -182,37 +181,33 @@ import React, { useState } from 'react';
         >
           <CameraIcon className="h-5 w-5" />
           {selectedOption === 'record'
-            ? 'Proceed to Preview'
+            ? 'Proceed to Record'
             : selectedOption === 'upload'
-            ? 'Proceed to Preview'
+            ? 'Proceed to Upload'
             : 'Proceed'} →
         </button>
       </div>
 
-      {/* Render the upload modal conditionally */}
       {isUploadModalOpen && selectedOption === 'upload' && (
         <VideoUploaderModal onClose={closeUploadModal} onVideoSelected={handleVideoSelected} />
       )}
 
-      {/* Render the recording modal conditionally */}
       {isRecordingModalOpen && selectedOption === 'record' && (
         <RecordingModal onClose={closeRecordingModal} onStopRecording={() => {
           closeRecordingModal();
           setIsPreviewOpen(true);
           setVideoUrl('recorded_video.mp4'); // Replace with actual recorded video URL
-        }} />
-      )}
+          }} />      
+          )}
 
-      {/* Render the preview modal conditionally */}
       {isPreviewOpen && (
-        <VideoPreviewCard
+        <VideoPreviewModal
           videoUrl={videoUrl}
-          onUploadAnother={handleUploadAnother}
-          onSubmitVideo={() => {
-            console.log('Final video submitted:', selectedVideo || videoLink);
-            setIsPreviewOpen(false);
-          }}
           onClose={closePreviewModal}
+          onPrimaryAction={onPrimaryButtonClick}
+          onSecondaryAction={handleUploadAnother}
+          primaryButtonText="Submit Video"
+          secondaryButtonText={selectedOption === 'record' ? 'Record Again' : 'Upload Another'}
         />
       )}
     </div>

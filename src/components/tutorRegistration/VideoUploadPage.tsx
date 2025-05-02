@@ -34,6 +34,8 @@ const VideoUploadPage: React.FC = () => {
           onUploadVideo={handleUploadVideo}
           onUploadVideoLink={handleUploadVideoLink}
           onProceed={handleProceed}
+          onPrimaryButtonClick={handleProceed}
+          onSubmitRecordedVideo={handleRecordVideo}
         />
     </div>
   );

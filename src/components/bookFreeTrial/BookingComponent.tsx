@@ -12,11 +12,6 @@ import LayerI from '@/src/assets/images/Layer1.png'
 import { IoCalendarNumberOutline } from 'react-icons/io5'
 import { TfiTimer } from 'react-icons/tfi'
 
-// Define the props interface
-interface BookingComponentProps {
-  // No props needed for this version as data comes from sessionStorage
-}
-
 // Define the structure of the data expected from sessionStorage
 interface SignupData {
   userId: string;
@@ -27,7 +22,7 @@ interface SignupData {
   [key: string]: any; // Allow other properties
 }
 
-const BookingComponent: React.FC<BookingComponentProps> = ({ /* Destructure props here if needed */ }) => {
+const BookingComponent = () => {
   // Type the state variables
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [selectedTime, setSelectedTime] = useState<Moment | null>(null);
@@ -42,11 +37,11 @@ const BookingComponent: React.FC<BookingComponentProps> = ({ /* Destructure prop
     let currentTime = start.clone(); // Clone to avoid modifying the original start time
 
     while (currentTime.isBefore(end)) {
-      slots.push(currentTime.clone())
-      currentTime.add(interval, 'minutes')
+      slots.push(currentTime.clone());
+      currentTime.add(interval, 'minutes');
     }
-    return slots
-  }
+    return slots;
+  };
 
   // Ensure start and end times are correctly initialized for the day
   const startTime = moment().startOf('day'); // Start at 00:00
@@ -57,27 +52,33 @@ const BookingComponent: React.FC<BookingComponentProps> = ({ /* Destructure prop
   useEffect(() => {
     const storedData = sessionStorage.getItem('pendingSignupData');
     if (storedData) {
-      setSignupData(JSON.parse(storedData));
+      try {
+        setSignupData(JSON.parse(storedData));
+      } catch (error) {
+        console.error("Error parsing signup data:", error);
+        sessionStorage.removeItem('pendingSignupData');
+        router.push('/'); // Or some error page
+      }
     } else {
       // Handle case where data is missing (e.g., redirect back or show error)
       console.error("Signup data not found in session storage.");
-      // Optionally redirect: router.push('/');
+      router.push('/');
     }
   }, [router]); // Added router dependency
   // Type the date parameter for handleDateChange
   // Define the type for the value from react-calendar's onChange
   type CalendarValue = Date | null | [Date | null, Date | null];
 
-  const handleDateChange = (value: CalendarValue, event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleDateChange = (value: CalendarValue) => {
     // react-calendar returns Date | null | [Date | null, Date | null]
     if (value instanceof Date) {
       setSelectedDate(value);
     } else if (Array.isArray(value) && value[0] instanceof Date) {
       // If it's a range, use the start date (assuming no range selection is intended)
       setSelectedDate(value[0]);
-    } // If value is null or the first element of the array is null, do nothing or handle as needed
+    }
     setSelectedTime(null); // Reset time selection when date changes
-    };
+  };
 
   const handleConfirmBooking = async () => {
     if (!selectedTime || !signupData) {
@@ -116,7 +117,7 @@ const BookingComponent: React.FC<BookingComponentProps> = ({ /* Destructure prop
 
       console.log("Signup Response:", response.data);
 
-      if (response.data) { // Assuming success if response.data is truthy
+      if (response.status >= 200 && response.status < 300) { // Check for success
         setShowConfirmationModal(true); // Show confirmation modal on success
         sessionStorage.removeItem('pendingSignupData'); // Clear stored data
       } else {
@@ -127,11 +128,11 @@ const BookingComponent: React.FC<BookingComponentProps> = ({ /* Destructure prop
       const errorMessage = (error as any)?.response?.data?.message || "Signup failed during final step. Please try again.";
       alert(errorMessage);
     }
-  }
+  };
 
   const handleLoginClick = () => {
     router.push('/login'); // Redirect to login page
-  }
+  };
 
   return (
     <>
@@ -149,7 +150,7 @@ const BookingComponent: React.FC<BookingComponentProps> = ({ /* Destructure prop
               </p>
               <div className={styles.calendarContainer}>
                 <Calendar
-                  onChange={(value, event) => handleDateChange(value, event)}
+                  onChange={handleDateChange}
                   value={selectedDate}
                   minDate={new Date()} // Prevent selecting past dates
                 />
@@ -166,7 +167,7 @@ const BookingComponent: React.FC<BookingComponentProps> = ({ /* Destructure prop
             {/* Time Slots */}
             <div className={styles.timeGrid}>
               {timeSlots.map((time, index) => (
-                 <button // Use button for better accessibility and semantics
+                <button // Use button for better accessibility and semantics
                   key={index}
                   onClick={() => setSelectedTime(time)} // Simplified handler
                   className={`${styles.timeButton} ${selectedTime?.isSame(time, 'minute') ? styles.timeButtonSelected : ''}`}
@@ -203,7 +204,6 @@ const BookingComponent: React.FC<BookingComponentProps> = ({ /* Destructure prop
         message='to your account to see the details of your upcoming meeting/class'
       />
     </>
-  )
-}
-; // Added semicolon for consistency
+  );
+}; // Added semicolon for consistency
 export default BookingComponent;
