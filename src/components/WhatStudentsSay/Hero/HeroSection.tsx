@@ -1,4 +1,6 @@
-import React from "react";
+'use client'; // Add this because we're using useState
+
+import React, { useState } from "react"; // Import useState
 import { FaStar } from "react-icons/fa";
 import { FiUser } from "react-icons/fi";
 import HeroImage from "@/src/assets/images/HeroImage.png";
@@ -7,9 +9,11 @@ import avar1 from "@/src/assets/images/avar1.jpeg";
 import avar2 from "@/src/assets/images/avar2.jpeg";
 import avar3 from "@/src/assets/images/avar3.jpeg";
 import avar4 from "@/src/assets/images/avar4.jpeg";
-import Link from "next/link";
+// import Link from "next/link"; // No longer needed for this button
+import TutorSelectionModal from "../../bookFreeTrial/TutorSelectionModal"; // Import the modal
 
 const HeroSection: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className="flex flex-col lg:flex-row bg-black text-white min-h-screen pt-32 mt-20 px-6 md:px-16 lg:px-20 max-md:mt-5">
       {/* Left Section */}
@@ -23,11 +27,13 @@ const HeroSection: React.FC = () => {
             step of your academic journey.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4">
-          <Link href="/freetrial" passHref> 
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium">
+          {/* <Link href="/freetrial" passHref> */}
+            <button
+              onClick={() => setIsModalOpen(true)} // Open modal on click
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium"
+            >
               Book a Free Trial
             </button>
-            </Link>
             <button className="bg-gray-800 hover:bg-gray-700 text-blue-700 px-6 py-3 border-2 border-blue-700 rounded-lg font-medium">
               Explore Tutors
             </button>
@@ -88,6 +94,8 @@ const HeroSection: React.FC = () => {
           <span className="text-white text-sm">John Matthew</span>
         </div>
       </div>
+      {/* Render the modal conditionally */}
+      <TutorSelectionModal open={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };

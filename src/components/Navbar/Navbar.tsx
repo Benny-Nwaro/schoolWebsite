@@ -21,6 +21,7 @@ import PreKIcon from "@/src/assets/images/PreKIcon.png";
 import GradeIcon from "@/src/assets/images/GradeIcon.png";
 import PlayIcon from "@/src/assets/images/playIcon.png";
 import Link from "next/link";
+import TutorSelectionModal from "../bookFreeTrial/TutorSelectionModal"; // Import the modal
 import { usePathname, useRouter } from "next/navigation"; // Import useRouter
 
 
@@ -31,6 +32,7 @@ const Navbar: React.FC = () => {
   const [subjectsOpen, setSubjectsOpen] = useState(false);
   const [gradesOpen, setGradesOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
   const path = usePathname()
   const router = useRouter(); // Initialize router
   const pathname = path.split("/")[2]
@@ -100,6 +102,11 @@ const Navbar: React.FC = () => {
       title: "Grade 9 to 12",
     },
   ];
+
+  // Function to open the modal
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
 
   return (
     <nav hidden={showNavbar} className="bg-white shadow-md fixed top-0 w-full text-sm z-50">
@@ -218,12 +225,10 @@ const Navbar: React.FC = () => {
             <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 w-4/5 text-sm">
               Become a Tutor
             </button>
-            {/* Wrap mobile button with Link */}
-            <Link href="/freetrial" passHref className="w-4/5">
-              <button className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 w-full text-sm">
+            {/* Mobile button opens modal */}
+            <button onClick={handleOpenModal} className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 w-4/5 text-sm">
               Book a free trial
-              </button>
-            </Link>
+            </button>
           </div>
         </ul>
 
@@ -253,14 +258,18 @@ const Navbar: React.FC = () => {
           <Link href="/auth/signIn" className="px-4 py-2 text-blue-500 border border-blue-500 rounded hover:bg-blue-500 hover:text-white text-sm">
             Sign in
           </Link>
-          {/* Wrap desktop button with Link */}
-          <Link href="/freetrial" passHref>
-            <button className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 text-sm">
-              Book a free trial
-            </button>
-          </Link>
+          {/* Desktop button opens modal */}
+          <button onClick={handleOpenModal} className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 text-sm">
+            Book a free trial
+          </button>
         </div>
       </div>
+      {/* Render the modal conditionally */}
+      <TutorSelectionModal
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        // onSelectData can be added here if needed later
+      />
     </nav>
   );
 };

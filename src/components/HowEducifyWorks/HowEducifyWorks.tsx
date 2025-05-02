@@ -1,6 +1,9 @@
-import React from "react";
+'use client'; // Add this because we're using useState
+
+import React, { useState } from "react"; // Import useState
 import Learning from "@/src/assets/images/Learning.png";
-import Link from "next/link";
+// import Link from "next/link"; // No longer needed for this button
+import TutorSelectionModal from "../bookFreeTrial/TutorSelectionModal"; // Import the modal
 
 const HowEducifyWorks: React.FC = () => {
   const steps = [
@@ -23,6 +26,8 @@ const HowEducifyWorks: React.FC = () => {
       description: "Access lessons, complete assignments, and track your progress through your personalized dashboard.",
     },
   ];
+
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
 
   return (
     <div className="bg-blue-900 py-16 px-6 lg:px-20 max-md:w-full">
@@ -68,12 +73,16 @@ const HowEducifyWorks: React.FC = () => {
 
       {/* CTA Section */}
       <div className="text-center mt-12">
-      <Link href="/freetrial" passHref>
-        <button className="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:opacity-90 transition duration-300">
+      {/* <Link href="/freetrial" passHref> */}
+        <button
+          onClick={() => setIsModalOpen(true)} // Open modal on click
+          className="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:opacity-90 transition duration-300"
+        >
           Book a free trial
         </button>
-        </Link>  
+        {/* </Link> */}
       </div>
+      <TutorSelectionModal open={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };

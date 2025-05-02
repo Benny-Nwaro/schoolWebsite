@@ -1,10 +1,13 @@
-import React from "react";
+'use client'; // Add this because we're using useState
+
+import React, { useState } from "react"; // Import useState
 import HeroImage1 from "@/src/assets/images/Hero2Image.jpeg";
 import HeroImage2 from "@/src/assets/images/Hero2image2.png";
-import Link from "next/link";
-
+// import Link from "next/link"; // No longer needed for this button
+import TutorSelectionModal from "../bookFreeTrial/TutorSelectionModal"; // Import the modal
 
 const HeroSection2: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
   return (
     <section className="relative bg-blue-900 text-white py-16 px-6 max-md:py-5">
       <div className="max-w-5xl mx-auto text-center py-16 max-md:py-5">
@@ -32,15 +35,18 @@ const HeroSection2: React.FC = () => {
           </span>
         </h1>
         <div className="mt-8">
-        <Link href="/freetrial" passHref>
-          <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:opacity-90 transition-opacity">
+        {/* <Link href="/freetrial" passHref> */}
+          <button
+            onClick={() => setIsModalOpen(true)} // Open modal on click
+            className="bg-gradient-to-r from-purple-500 to-pink-500 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:opacity-90 transition-opacity"
+          >
             Book a free trial
           </button>
-          </Link> 
+          {/* </Link> */}
         </div>
       </div>
-      {/* Decorative lines */}
-      {/* <div className="absolute top-0 right-0 h-full w-1/3 bg-gradient-to-b from-transparent to-blue-900" /> */}
+      {/* Render the modal conditionally */}
+      <TutorSelectionModal open={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 };

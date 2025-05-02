@@ -5,7 +5,7 @@ import verified from "@/src/assets/svg/verified.svg";
 import star from "@/src/assets/svg/gold-start.svg";
 import Image from "next/image";
 import Button from "../Button/Button";
-import Link from "next/link";
+// import Link from "next/link"; // No longer needed for this button
 
 import location from "@/src/assets/svg/location.svg";
 import bag from "@/src/assets/svg/bag.svg";
@@ -13,8 +13,10 @@ import pet from "@/src/assets/svg/pet.svg";
 import studentgroup from "@/src/assets/svg/studentgroup.svg";
 import TutorSearchCardPreview from "../TutorSearchCardPreview/TutorSearchCardPreview";
 import { useState } from "react";
+import TutorSelectionModal from "../bookFreeTrial/TutorSelectionModal"; // Import the modal
 
 const TutorSearchCard = ({ showPreview, index, setShowPreview }: any) => {
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
   return (
     <>
       {showPreview === index && <TutorSearchCardPreview />}
@@ -69,9 +71,12 @@ const TutorSearchCard = ({ showPreview, index, setShowPreview }: any) => {
               </div>
               <div className="button">
                 <Button variant="primary_inverted">Ask a Question</Button>
-                <Link href="/freetrial" passHref>
-                <Button variant="primary">Book a Free Trial</Button>
-                </Link>
+                {/* <Link href="/freetrial" passHref> */}
+                <Button
+                  variant="primary"
+                  onClick={() => setIsModalOpen(true)} // Open modal on click
+                >Book a Free Trial</Button>
+                {/* </Link> */}
               </div>
             </div>
           </div>
@@ -85,6 +90,8 @@ const TutorSearchCard = ({ showPreview, index, setShowPreview }: any) => {
           </p>
         </div>
       </div>
+      {/* Render the modal conditionally */}
+      <TutorSelectionModal open={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 };

@@ -5,6 +5,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import Logo from "@/src/assets/images/EducifyLogo.png";
 import google from "@/src/assets/images/google.png";
 import Link from 'next/link';
+import TutorSelectionModal from '../bookFreeTrial/TutorSelectionModal'; // Import the modal
 
 
 const LoginPage: React.FC = () => {
@@ -20,6 +21,7 @@ const LoginPage: React.FC = () => {
     const [welcomeText, setWelcomeText ] = useState("Welcome to Educify!")
     const [acknowledgementText, setAcknowledgementText ] = useState("Educify helps you learn, optimize and support your academic journey.")
     const [isVisible, setIsVisible] = useState(false); // Visibility state
+    const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
     const [isVisibleVerificcation, setIsVisibleVerificcation] = useState(false); // Visibility state
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
@@ -254,12 +256,12 @@ const LoginPage: React.FC = () => {
           <p className='pr-2'>
           Don’t have an account yet?{' '}
           </p>
-          <a href="/freetrial" className="text-blue-500 hover:underline">
+          {/* Change link to button that opens the modal */}
+          <button type="button" onClick={() => setIsModalOpen(true)} className="text-blue-500 hover:underline">
             Book a free Trial
-          </a>
+          </button>
          </div>
          <div className='flex flex-row my-5'>
-            <hr className="flex-grow border-t mt-5 border-gray-300 justify-center items-center" />
             <span hidden={hideGoogle} className="mx-4 text-gray-500 justify-center items-center">Or</span>
             <hr className="flex-grow border-t mt-5 border-gray-300 justify-center items-center" />
          </div>
@@ -278,6 +280,12 @@ const LoginPage: React.FC = () => {
             </button>
         </div>
       </div>
+      {/* Render the modal conditionally */}
+      <TutorSelectionModal
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        // onSelectData can be added here if needed later
+      />
     </div>
   );
 };
