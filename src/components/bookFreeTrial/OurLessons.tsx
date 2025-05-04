@@ -23,7 +23,7 @@ import mathsImage from "@/src/assets/images/maths.png"; // Adjusted path
 import languagesImage from "@/src/assets/images/languages.png"; // Adjusted path
 import criticalImage from "@/src/assets/images/critical.png"; // Adjusted path
 import artsImage from "@/src/assets/images/arts.png"; // Adjusted path
-import stemImage from "@/src/assets/images/STEM.png"; // Adjusted path
+import stemImage from "@/src/assets/images/stem.png"; // Adjusted path
 import codingImage from "@/src/assets/images/coding.png"; // Adjusted path
 import englishImage from "@/src/assets/images/english.png"; // Adjusted path
 
