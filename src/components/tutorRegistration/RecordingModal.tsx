@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { XMarkIcon, VideoCameraIcon } from '@heroicons/react/24/solid';
 
 interface RecordingModalProps {
@@ -15,7 +15,8 @@ const RecordingModal: React.FC<RecordingModalProps> = ({ onStopRecording, onClos
   const [videoBlob, setVideoBlob] = useState<Blob | null>(null);
   const [videoTitle, setVideoTitle] = useState('');
   const chunksRef = useRef<Blob[]>([]);
-  const [isStopping, setIsStopping] = useState(false); // Declare isStopping state
+  const [isStopping, setIsStopping] = useState(false);
+  const [isTitleFocused, setIsTitleFocused] = useState(false); // New state for title input focus
 
   useEffect(() => {
     startCamera();
@@ -39,8 +40,8 @@ const RecordingModal: React.FC<RecordingModalProps> = ({ onStopRecording, onClos
         const blob = new Blob(chunksRef.current, { type: 'video/webm' });
         chunksRef.current = [];
         setVideoBlob(blob);
-        setShowTitlePrompt(true); // Show title prompt *here*
-        setIsStopping(false); // Reset isStopping here
+        setShowTitlePrompt(true);
+        setIsStopping(false);
       };
 
       recorder.start();
@@ -62,127 +63,172 @@ const RecordingModal: React.FC<RecordingModalProps> = ({ onStopRecording, onClos
     if (mediaRecorderRef.current?.state === 'recording') {
       setIsStopping(true);
       mediaRecorderRef.current.stop();
-      setIsRecording(false); //  Set isRecording to false when stop recording.
+      setIsRecording(false);
     }
   };
 
   const saveToLocalStorage = (title: string, blob: Blob) => {
     const reader = new FileReader();
+  
     reader.onloadend = () => {
-      const base64Data = reader.result as string;
-      const existing = JSON.parse(localStorage.getItem('recordedVideos') || '[]');
-      const newEntry = { title, video: base64Data, createdAt: new Date().toISOString() };
-      localStorage.setItem('recordedVideos', JSON.stringify([...existing, newEntry]));
+      try {
+        const base64Data = reader.result as string;
+  
+        // Retrieve existing data safely
+        const existingRaw = localStorage.getItem("recordedVideos");
+        let existing: any[] = [];
+  
+        if (existingRaw) {
+          try {
+            existing = JSON.parse(existingRaw);
+            if (!Array.isArray(existing)) existing = [];
+          } catch {
+            existing = [];
+          }
+        }
+  
+        // Remove any existing video with the same title
+        const filtered = existing.filter((entry) => entry.title !== title);
+  
+        // Create new video entry
+        const newEntry = {
+          title,
+          video: base64Data,
+          createdAt: new Date().toISOString(),
+        };
+  
+        // Add the new entry
+        const updated = [...filtered, newEntry];
+  
+        localStorage.setItem("recordedVideos", JSON.stringify(updated));
+      } catch (error) {
+        console.error("Error saving video to localStorage:", error);
+      }
     };
+  
+    reader.onerror = () => {
+      console.error("FileReader error:", reader.error);
+    };
+  
     reader.readAsDataURL(blob);
   };
+  
+  
 
   const handleTitleSubmit = () => {
     if (!videoBlob || !videoTitle.trim()) return;
     saveToLocalStorage(videoTitle.trim(), videoBlob);
     onStopRecording(videoBlob);
     setShowTitlePrompt(false);
-    stopCamera(); // Stop camera after submit
-    onClose();
-  };
-
-  const handleClose = () => {
-    if (showTitlePrompt) return; // Prevent close if title prompt is showing
     stopCamera();
     onClose();
   };
 
+  const handleClose = () => {
+    if (showTitlePrompt) return;
+    stopCamera();
+    onClose();
+  };
+
+  const memoizedVideoURL = useMemo(() => {
+    return videoBlob ? URL.createObjectURL(videoBlob) : null;
+  }, [videoBlob]);
+  
+
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white rounded-xl shadow-lg relative w-full max-w-3xl px-6 py-12 max-md:mx-3">
+      <div className="bg-white rounded-xl shadow-lg relative w-full max-w-3xl pt-8 px-4 pb-4 max-md:mx-3"> {/* Reduced padding */}
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+          className="absolute top-2 right-2 text-gray-400 hover:text-gray-600" // Reduced top and right
         >
           <XMarkIcon className="h-6 w-6 font-bold text-black" />
         </button>
 
-        {!showTitlePrompt && (
-          <>
-            {/* Camera view */}
-            <div className="relative aspect-video bg-black rounded-xl overflow-hidden">
-              <video
-                ref={videoRef}
-                className="absolute w-full h-full object-cover"
-                autoPlay
-                muted
-                playsInline
-              />
-              {isRecording && (
-                <div className="absolute top-4 left-4 bg-red-600 rounded-full w-4 h-4 animate-pulse" />
-              )}
-            </div>
+      {/* Video Container */}
+    
 
-            {/* Stop Recording Button */}
-            <div className=" mt-3 text-center">
-              <button
-                onClick={handleStopRecording}
-                className="bg-red-500 hover:bg-red-700 w-12 h-12  text-white rounded-full disabled:bg-gray-400"
-                disabled={!isRecording} // Disable when not recording
-              >
-                {isRecording ? (
-                  isStopping ? (
-                    <div className="h-6 w-6 animate-spin border-2 border-white border-t-transparent rounded-full" />
-                  ) : (
-                    <VideoCameraIcon className="h-6 w-6 " />
-                  )
+      {!showTitlePrompt && (
+          <div className="relative aspect-video bg-black rounded-xl overflow-hidden">
+          <video
+            ref={videoRef}
+            className="absolute w-full h-full object-cover"
+            autoPlay
+            muted
+            playsInline
+          />
+  
+          {isRecording && (
+            <div className={`absolute top-2 left-2 bg-red-600 rounded-full w-3 h-3 ${!isTitleFocused ? 'animate-pulse' : ''}`} />
+          )}
+  
+          {/* Bottom Center Video Icon */}
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
+            <button
+              onClick={handleStopRecording}
+              className="bg-red-500 hover:bg-red-700 w-12 h-12 text-white rounded-full disabled:bg-gray-400 flex items-center justify-center"
+              disabled={!isRecording}
+            >
+              {isRecording ? (
+                isStopping ? (
+                  <div className="h-6 w-6 animate-spin border-2 border-white border-t-transparent rounded-full" />
                 ) : (
-                  <VideoCameraIcon className="h-6 w-6 " />
-                )}
-              </button>
-            </div>
-            {isStopping && <p className="text-center mt-4 text-gray-500">Finalizing recording...</p>}
-          </>
-        )}
+                  <VideoCameraIcon className="h-6 w-6" />
+                )
+              ) : (
+                <VideoCameraIcon className="h-6 w-6" />
+              )}
+            </button>
+          </div>
+        </div>
+      )}
 
         {/* Title Prompt */}
         {showTitlePrompt && videoBlob && (
-          <div className="mt-6 p-2  max-w-3xl rounded-xl border border-gray-300">
-            <p className="mb-2 font-medium">Enter a title for your recording:</p>
+          <div className="mt-4 p-2 max-w-3xl rounded-xl border border-gray-300">
+            <p className="mb-1 font-medium">Enter a title for your recording:</p>
             <input
               type="text"
               value={videoTitle}
               onChange={(e) => setVideoTitle(e.target.value)}
+              onFocus={() => setIsTitleFocused(true)}
+              onBlur={() => setIsTitleFocused(false)}
               onKeyDown={(e) => e.key === 'Enter' && handleTitleSubmit()}
-              className="w-full p-1 border rounded mb-4"
+              className="w-full p-1 border rounded mb-2"
               placeholder="e.g. My Test Recording"
             />
 
+            {/* Don't regenerate this URL on every keystroke */}
             <video
               controls
-              src={URL.createObjectURL(videoBlob)}
-              className="w-full rounded border border-gray-600 mb-4"
+              src={memoizedVideoURL || ""}
+              className="w-full rounded border border-gray-600 mb-2"
             />
 
             <div className="flex justify-end gap-2">
               <button
                 onClick={() => {
                   setShowTitlePrompt(false);
-                  setVideoBlob(null); // Clear the video blob
+                  setVideoBlob(null);
                 }}
-                className="px-4 py-2 text-sm bg-gray-300 hover:bg-gray-400 rounded"
+                className="px-3 py-1 text-sm bg-gray-300 hover:bg-gray-400 rounded"
               >
                 Cancel
               </button>
               <button
                 onClick={handleTitleSubmit}
                 disabled={!videoTitle.trim()}
-                className="px-4 py-2 text-sm bg-blue-600 text-white hover:bg-blue-700 rounded disabled:opacity-50"
+                className="px-3 py-1 text-sm bg-blue-600 text-white hover:bg-blue-700 rounded disabled:opacity-50"
               >
                 Save
               </button>
             </div>
           </div>
         )}
+
       </div>
     </div>
   );
 };
 
 export default RecordingModal;
-
