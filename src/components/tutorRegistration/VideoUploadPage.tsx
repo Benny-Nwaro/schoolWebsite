@@ -1,12 +1,16 @@
 "use client"
 
-import React, { useState } from 'react';
+import React from 'react';
 import VideoUploadCard from './VideoUploadCard';
 
-const VideoUploadPage: React.FC = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+interface ProceedProps {
+  onProceed: () => void;
+}
 
-    const closeModal = () => setIsModalOpen(!isModalOpen);
+const VideoUploadPage: React.FC<ProceedProps> = ({onProceed}) => {
+    // const [isModalOpen, setIsModalOpen] = useState(false);
+
+    // const closeModal = () => setIsModalOpen(!isModalOpen);
 
   const handleRecordVideo = () => {
     console.log('User wants to record a video');
@@ -33,7 +37,7 @@ const VideoUploadPage: React.FC = () => {
       <VideoUploadCard
           onUploadVideo={handleUploadVideo}
           onUploadVideoLink={handleUploadVideoLink}
-          onProceed={handleProceed}
+          onProceed={onProceed}
           onPrimaryButtonClick={handleProceed}
           onSubmitRecordedVideo={handleRecordVideo}
         />

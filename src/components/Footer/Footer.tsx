@@ -19,20 +19,20 @@ import { usePathname } from "next/navigation";
 
 
 const Footer = () => {
-  const [showFooter, setShowFooter] = useState(false)
+  const [hideFooter, setHideFooter] = useState(false)
   const path = usePathname()
   const pathname = path.split("/")[2]
   
   useEffect(()=>{
-    if(pathname ==="signIn" || pathname === "register" || path.split("/")[1] ==="message" ){
-      setShowFooter(true)
+    if(pathname ==="signIn" || pathname === "register" || path.split("/")[1] ==="message" || path.split("/")[1] ==="profileUpdate" ){
+      setHideFooter(true)
     }
     else{
-      setShowFooter(false)
+      setHideFooter(false)
     }  })
 
   return (
-    <div hidden={showFooter} className="footer_container">
+    <div hidden={hideFooter} className="footer_container">
       <div className="">
         <NewLetter />
         <footer className="inner_max">

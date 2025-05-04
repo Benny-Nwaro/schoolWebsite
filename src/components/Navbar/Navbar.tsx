@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [subjectsOpen, setSubjectsOpen] = useState(false);
   const [gradesOpen, setGradesOpen] = useState(false);
-  const [showNavbar, setShowNavbar] = useState(false)
+  const [hideNavbar, setHideNavbar] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
   const path = usePathname()
   const router = useRouter(); // Initialize router
@@ -41,11 +41,11 @@ const Navbar: React.FC = () => {
   useEffect(()=>{
     // console.log(path.split("/")[1])
     
-    if(pathname ==="signIn" || pathname === "register" || path.split("/")[1] ==="message" ){
-      setShowNavbar(true)
+    if(pathname ==="signIn" || pathname === "register" || path.split("/")[1] ==="message" || path.split("/")[1] ==="profileUpdate" ){
+      setHideNavbar(true)
     }
     else{
-      setShowNavbar(false)
+      setHideNavbar(false)
     }
   })
   const skills = [
@@ -109,7 +109,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav hidden={showNavbar} className="bg-white shadow-md fixed top-0 w-full text-sm z-50">
+    <nav hidden={hideNavbar} className="bg-white shadow-md fixed top-0 w-full text-sm z-50">
       <div className="flex items-center justify-between px-6 lg:px-12 py-4 lg:py-6 text-sm">
         {/* Logo */}
         <div className="flex items-center">

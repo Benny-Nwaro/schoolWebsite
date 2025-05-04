@@ -1,42 +1,55 @@
-import React, { useState } from 'react';
-// import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
+'use client';
+
+import React, { useState, useRef } from 'react';
+import { GoogleMap, Marker, useLoadScript, Autocomplete } from '@react-google-maps/api';
+
+const libraries: ("places")[] = ['places'];
+const mapContainerStyle = {
+  width: '100%',
+  height: '24rem', // Increased height
+};
+const center = {
+  lat: 9.0820,
+  lng: 8.6753,
+};
 
 interface AddressModalProps {
   onClose: () => void;
-  onAddressSelect: (address: string) => void; // Optional: If you want to pass back a selected address
+  onAddressSelect: (address: string) => void;
 }
 
 const AddressModal: React.FC<AddressModalProps> = ({ onClose, onAddressSelect }) => {
+  const [selected, setSelected] = useState<google.maps.LatLngLiteral | null>(null);
   const [addressInput, setAddressInput] = useState('');
-  const [suggestions, setSuggestions] = useState<string[]>([]); // Placeholder for address suggestions
+  const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    setAddressInput(value);
-    // In a real application, you would call an address autocomplete API here
-    // based on the 'value' and update the 'suggestions' state.
-    // For this example, we'll provide some static suggestions.
-    if (value.length > 2) {
-      setSuggestions([
-        `${value}, Abuja, Nigeria`,
-        `${value} Crescent, Lagos, Nigeria`,
-        `${value} Street, Kano, Nigeria`,
-        // ... more suggestions based on input
-      ]);
-    } else {
-      setSuggestions([]);
+  const { isLoaded, loadError } = useLoadScript({
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY as string,
+    libraries,
+  });
+
+  const onLoad = (autocomplete: google.maps.places.Autocomplete) => {
+    autocompleteRef.current = autocomplete;
+  };
+
+  const onPlaceChanged = () => {
+    if (autocompleteRef.current) {
+      const place = autocompleteRef.current.getPlace();
+      if (place.formatted_address && place.geometry?.location) {
+        const location = place.geometry.location;
+        const latLng = {
+          lat: location.lat(),
+          lng: location.lng(),
+        };
+        setSelected(latLng);
+        setAddressInput(place.formatted_address);
+        onAddressSelect(place.formatted_address);
+      }
     }
   };
 
-  const handleSuggestionClick = (suggestion: string) => {
-    setAddressInput(suggestion);
-    setSuggestions([]);
-    if (onAddressSelect) {
-      onAddressSelect(suggestion);
-    }
-    // You might want to trigger an action to update the map or proceed
-  };
+  if (loadError) return <div>Error loading maps</div>;
+  if (!isLoaded) return <div>Loading...</div>;
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center bg-black bg-opacity-50 overflow-y-auto">
@@ -55,73 +68,35 @@ const AddressModal: React.FC<AddressModalProps> = ({ onClose, onAddressSelect })
             </svg>
           </button>
           <h2 className="text-lg font-semibold text-gray-800">Enter your home/studio address</h2>
-          <div></div> {/* Spacer for alignment */}
+          <div></div>
         </div>
 
         {/* Address Input */}
         <div className="p-4">
-          <div className="relative">
+          <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
             <input
               type="text"
-              className="w-full border border-gray-300 rounded-md py-2 px-3 text-gray-700 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
+              className="w-full border border-gray-500 rounded-md py-2 px-3 text-gray-700 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-sm"
               placeholder="Start typing in your address"
               value={addressInput}
-              onChange={handleInputChange}
+              onChange={(e) => setAddressInput(e.target.value)}
             />
-            <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-              </svg>
-            </div>
-          </div>
-
-          {/* Address Suggestions (Placeholder) */}
-          {suggestions.length > 0 && (
-            <ul className="mt-1 border border-gray-200 rounded-md shadow-sm bg-white">
-              {suggestions.map((suggestion, index) => (
-                <li
-                  key={index}
-                  className="py-2 px-3 text-sm text-gray-700 cursor-pointer hover:bg-gray-100"
-                  onClick={() => handleSuggestionClick(suggestion)}
-                >
-                  {suggestion}
-                </li>
-              ))}
-            </ul>
-          )}
+          </Autocomplete>
         </div>
 
         {/* Map */}
         <div className="p-4">
-        <div className="w-full h-64 bg-gray-100 rounded-md overflow-hidden">
-            {/* <MapContainer center={[9.0820, 8.6753]} zoom={6} style={{ height: '100%', width: '100%' }}>
-            <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={[9.0820, 8.6753]}>
-                <Popup>Nigeria Center</Popup>
-            </Marker>
-            </MapContainer> */}
+          <div className="w-full h-96 bg-gray-100 rounded-md overflow-hidden"> {/* h-96 = 24rem */}
+            <GoogleMap
+              mapContainerStyle={mapContainerStyle}
+              zoom={selected ? 15 : 6}
+              center={selected || center}
+            >
+              {selected && <Marker position={selected} />}
+            </GoogleMap>
+          </div>
+          <p className="mt-2 text-xs text-gray-500">Search your address and verify the location on the map.</p>
         </div>
-        <p className="mt-2 text-xs text-gray-500">Click on the address field and find your location on the map.</p>
-        </div>
-
-        {/* Optional: Footer Buttons */}
-        {/* <div className="flex justify-end p-4 border-t border-gray-200">
-          <button onClick={onClose} className="px-4 py-2 text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300">
-            Cancel
-          </button>
-          <button onClick={() => { if (addressInput) onAddressSelect(addressInput); onClose(); }} className="ml-2 px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            Select Address
-          </button>
-        </div> */}
       </div>
     </div>
   );
